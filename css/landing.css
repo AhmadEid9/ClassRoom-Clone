@@ -11,7 +11,23 @@ body {
   overflow-x: hidden;
   cursor: default;
 }
-
+.super-hero {
+  display: flex;
+  margin-top: 50px;
+  flex-wrap: nowrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.right-img {
+  width: 600px;
+  margin-right: 50px;
+}
+.image-prev {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .logo-img {
   width: 100px;
   margin-bottom: 20px;
@@ -23,11 +39,11 @@ body {
 }
 .hero {
   display: flex;
+  margin-left: 50px;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  margin-top: 100px;
-  text-align: center;
+  text-align: start;
   margin-right: 100px;
   max-width: 800px;
 }
@@ -126,8 +142,21 @@ button {
 .subhero-content:hover .subhero-desc {
   color: black;
 }
-@media (max-width = 767px) {
+@media (max-width: 767px) {
   button {
     font-size: 10px;
+  }
+  .sub-hero {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (max-width: 1200px) {
+  .image-prev {
+    display: none;
+  }
+}
+@media (max-width: 800px) {
+  .sub-hero {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
