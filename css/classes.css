@@ -273,7 +273,7 @@ main {
     "middle-card"
     "bottom-card";
   height: 300px;
-  max-width: 310px;
+  width: 310px;
   transition: 0.3s;
 }
 .card:hover {
