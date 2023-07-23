@@ -419,7 +419,7 @@ main {
   position: absolute;
   inset: 0;
   background-color: white;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
 }
@@ -442,6 +442,19 @@ main {
   margin-top: 20px;
   transition: 0.2s;
   align-self: flex-start;
+}
+.link-container {
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+}
+#meetLinkError {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 10px;
+  color: red;
+  display: none;
 }
 .form-element {
   padding: 10px 10px;
@@ -475,11 +488,21 @@ input {
 .submit-class:hover {
   background-color: #053cac;
 }
-#closeCreateClass {
+#closeCreateClass,
+#closeJoinClass {
   background-color: grey;
 }
-#closeCreateClass:hover {
+#closeCreateClass:hover,
+#closeJoinClass:hover {
   background-color: #2e2e2e;
+}
+#joinClassModal p {
+  font-size: 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: grey;
+  padding-bottom: 20px;
+  border-bottom: 2px solid grey;
 }
 .btn-container {
   align-self: flex-end;

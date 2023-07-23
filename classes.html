@@ -361,7 +361,24 @@
         </div>
       </div>
 
-      <div id="joinClassModal" class="modal"></div>
+      <div id="joinClassModal" class="modal">
+        <div class="create-form">
+          <h2>Join Class By Code</h2>
+          <p>
+            Get Your Code From Your Teacher and insert it here to join his class
+          </p>
+          <label for="ClassCode" class="form-label">Class Code</label>
+          <input type="text" id="ClassCode" class="form-element" />
+          <div class="btn-container">
+            <button class="submit-class" id="closeJoinClass" type="button">
+              Cancel
+            </button>
+            <button class="submit-class" id="submitJoin" type="submit">
+              Join Class
+            </button>
+          </div>
+        </div>
+      </div>
 
       <div id="createClassModal" class="modal">
         <div class="create-form">
@@ -370,15 +387,24 @@
           <input type="text" id="ClassName" class="form-element" />
           <label for="ClassTitle" class="form-label">Class Title</label>
           <input type="text" id="ClassTitle" class="form-element" />
-          <label for="ClassLink" class="form-label">Class Link</label>
-          <input type="url" id="ClassLink" class="form-element" />
+          <div class="link-container">
+            <label for="ClassLink" class="form-label">Class Link </label>
+            <input type="url" id="ClassLink" class="form-element" />
+            <p id="meetLinkError">Please enter valid meet link</p>
+          </div>
+
           <div class="btn-container">
-            <button class="submit-class" id="closeCreateClass">Cancel</button>
-            <button class="submit-class" id="submitClass">Create Class</button>
+            <button class="submit-class" id="closeCreateClass" type="button">
+              Cancel
+            </button>
+            <button class="submit-class" id="submitClass" type="submit">
+              Create Class
+            </button>
           </div>
         </div>
       </div>
     </main>
   </body>
   <script src="js/toggle-sidebar.js"></script>
+  <script src="js/classes.js"></script>
 </html>
