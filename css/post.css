@@ -1,19 +1,54 @@
 .container{
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
 
-    height: 100vh;
-    width: 100vw;
+    margin: 0px;
+
+    height: 70vh;
+    width: 70vw;
 }
+
+.content{
+    display: flex;
+    
+    gap: 10px;
+    width: 30vw;
+}
+
+.headlines{
+    display: flex;
+    flex-direction: column;
+    
+    width: 70vw;
+}
+
+.headline{
+    width: 100vw;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
 
 .poster{
     background-color: rgb(2, 2, 82);
+    border-radius: 5%;
+
     display: flex;
+    
     flex-direction: column;
+    justify-content: flex-end;
+    
     gap: 5px;
     padding: 3%;
-
+    height: 30vh;
+    width: 70vw;
 }
 
 .row{
@@ -39,8 +74,36 @@
     gap: 10px;
 }
 
-.tabs{
+.text{
+    color: rgb(223, 221, 218);
+}
+
+.right-side{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+}
+
+.link-box{
+    border: solid;
+    border-width: 1px;
+    display: flex;
+    flex-direction: column;
     gap: 3px;
+}
+
+.assingments{
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.icon{
+    height: 50px;
+    width: 50px;
+}
+
+.single-assingment{
+    display: flex;
+    flex-direction: column;
 }
