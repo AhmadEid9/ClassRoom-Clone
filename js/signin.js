@@ -183,3 +183,29 @@ submitBtn.addEventListener("click", function () {
       console.error(err);
     });
 });
+
+function update_pass (){
+  let newpass= document.getElementById("newPassword").value
+  let data = new FormData();
+  data.append("user_password", newpass);
+  data.append("user_email", emailInput.value);
+
+  axios({
+    method: "post",
+    url: "http://localhost/ClassRoom-Clone/apis/updatepass.php",
+    data: data,
+  })
+    .then((result) => {
+      console.log(result.data);
+      if (result.data.message == "Password changed successfully") {
+        window.location.href = "classes.html";
+      } else if (result.data.message == "Email does not exist") {
+        alert("email not found");
+      } else {
+        alert("Password must be at least 8 characters long");
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+}

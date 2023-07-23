@@ -106,16 +106,16 @@
             <input
               type="password"
               id="newPassword"
-              maxlength="24"
-              class="form-element"
+              name="newPassword"
+               class="form-element"
             />
           </div>
           <div class="show">
             <input type="checkbox" id="showPassReset" />
             <label for="showPassReset" class="form-label">Show Password</label>
           </div>
-          <button type="button" class="next-btn" id="submitNewPass">
-            Submit and Return to Sign in
+          <button type="button" class="next-btn" id="submitNewPass" onclick="update_pass()">
+            Submit and Sign in
           </button>
         </section>
       </div>
