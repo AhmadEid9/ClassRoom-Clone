@@ -118,9 +118,11 @@ CREATE TABLE IF NOT EXISTS `classroom_db`.`user_assignments` (
   `assignment_id` INT NOT NULL,
   `user_id` INT NOT NULL,
   PRIMARY KEY (`submition_id`),
+  INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
+  INDEX `assignment_id_idx` (`assignment_id` ASC) VISIBLE,
   CONSTRAINT `assignment_id`
-    FOREIGN KEY ()
-    REFERENCES `classroom_db`.`assignments` ()
+    FOREIGN KEY (`assignment_id`)
+    REFERENCES `classroom_db`.`assignments` (`assignment_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `user_id`
