@@ -132,6 +132,7 @@ input {
 }
 .reg-footer {
   margin-top: 30px;
+  font-size: 14px;
 }
 a {
   text-decoration: none;
