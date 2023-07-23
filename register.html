@@ -4,6 +4,125 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register a New Classroom Account</title>
+    <link rel="stylesheet" href="css/register.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="register-container">
+      <img src="Assets/google-icon.svg" alt="Google icon" class="google-icon" />
+      <h2 class="reg-title">Create a New Classroom Account</h2>
+
+      <div id="section1" class="form-section">
+        <p>Please fill in your First Name and Last Name</p>
+        <div class="form-group">
+          <label for="First_Name" class="form-label">First Name</label>
+          <input
+            type="text"
+            id="First_Name"
+            name="First_Name"
+            maxlength="25"
+            placeholder="Your first name"
+            class="form-element"
+            autocomplete="off"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="Last_Name" class="form-label">Last Name</label>
+          <input
+            type="text"
+            id="Last_Name"
+            name="Last_Name"
+            maxlength="25"
+            class="form-element"
+            autocomplete="off"
+            placeholder="Your last name"
+            required
+          />
+        </div>
+        <button
+          onclick="showSection2()"
+          type="button"
+          class="next-btn"
+          id="next_sec_1"
+        >
+          Next
+        </button>
+      </div>
+
+      <div id="section2" class="form-section" style="display: none">
+        <p>Please fill in your Email</p>
+        <div class="form-group">
+          <label for="Email" class="form-label">Email</label>
+          <input
+            type="email"
+            id="Email"
+            name="Email"
+            class="form-element"
+            placeholder="Your email here .."
+            autocomplete="off"
+            required
+          />
+          <div id="emailError">Invalid email address</div>
+        </div>
+        <div class="btn-container">
+          <button onclick="showSection1()" type="button" class="back-btn">
+            Back
+          </button>
+          <button
+            onclick="showSection3()"
+            type="button"
+            class="next-btn"
+            id="next_sec_2"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+
+      <div id="section3" class="form-section" style="display: none">
+        <p>Please fill in your Password and Confirm Password</p>
+        <div class="form-group">
+          <label for="Password" class="form-label">Password</label>
+          <input
+            type="password"
+            id="Password"
+            name="Password"
+            minlength="8"
+            class="form-element"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="Confirm_Password" class="form-label"
+            >Confirm Password</label
+          >
+          <input
+            type="password"
+            id="Confirm_Password"
+            name="Confirm_Password"
+            minlength="8"
+            class="form-element"
+            required
+          />
+        </div>
+        <div class="show">
+          <input type="checkbox" id="showPass" />
+          <label for="showPass" class="form-label">Show Password</label>
+        </div>
+        <div class="btn-container">
+          <button onclick="showSection2()" type="button" class="back-btn">
+            Back
+          </button>
+          <button type="submit" class="next-btn" id="submit">
+            Create Account
+          </button>
+        </div>
+      </div>
+      <div class="reg-footer">
+        <p>Already have an account? <a href="signin.html">Signin</a></p>
+      </div>
+    </div>
+
+    <script src="js/register.js"></script>
+  </body>
 </html>
