@@ -1,7 +1,8 @@
-// JS (signin.js)
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const emailInput = document.getElementById("Email");
 const emailError = document.getElementById("emailError");
+const passwordInput = document.getElementById("Password");
+const submitBtn= document.getElementById("submit");
 
 function showPassSection() {
   if (!emailRegex.test(emailInput.value.trim())) {
@@ -60,3 +61,27 @@ window.addEventListener("beforeunload", function (event) {
   event.returnValue =
     "Are you sure you want to leave? You have unsaved changes.";
 });
+
+submitBtn.addEventListener("click", function () {
+  let data = new FormData();
+  data.append('user_password', passwordInput.value);
+  data.append('user_email', emailInput.value);
+  
+  axios({
+      "method": "post",
+      "url": "http://localhost/ClassRoom-Clone/apis/signin.php",
+      "data": data
+  }).then((result) => {
+      console.log(result)
+      if (result.data.status == "logged in") {
+        window.location.href = 'classes.html';   
+    } else if (result.data.status == "user not found") {
+        alert("user not found");
+    } else {
+        alert("wrong password");
+    }
+      
+  }).catch((err) => {
+      console.error(err)
+  });
+})
