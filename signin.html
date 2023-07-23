@@ -9,6 +9,12 @@
     <title>Sign in To your Classroom Account</title>
   </head>
   <body>
+    <div class="email-alert" id="emailAlert">
+      <p>Email Sent Successfully</p>
+    </div>
+    <div class="email-alert" id="passAlert">
+      <p>Password Changed Successfully</p>
+    </div>
     <div class="signin-container">
       <div class="header">
         <img
@@ -27,6 +33,7 @@
               type="email"
               id="Email"
               name="Email"
+              spellcheck="false"
               class="form-element"
               placeholder="Your email here .."
               autocomplete="off"
@@ -64,7 +71,52 @@
             />
             <p id="forgot_pass">Don't Remember Password?</p>
           </div>
-          <button type="submit" class="next-btn" id="submit">Sign in</button>
+          <div class="btn-container">
+            <button class="back-btn" id="backToEmail">Back</button>
+            <button type="submit" class="next-btn" id="submit">Signin</button>
+          </div>
+        </section>
+        <section class="section" id="resetPassCode">
+          <p>
+            Enter the code sent to you by email
+            <span id="email_code_span"></span>
+          </p>
+          <div class="form-group">
+            <p id="wrongCode" class="input-error">Wrong Code</p>
+
+            <label for="Code" class="form-label">Code</label>
+            <input
+              type="text"
+              id="CodeInput"
+              name="Code"
+              minlength="5"
+              maxlength="5"
+              class="form-element"
+              autocomplete="off"
+            />
+          </div>
+          <button type="button" class="next-btn" id="continueBtn">
+            Continue
+          </button>
+        </section>
+        <section class="section" id="resetPassword">
+          <p>Enter Your new Password</p>
+          <div class="form-group">
+            <label for="newPassword" class="form-label">New Password</label>
+            <input
+              type="password"
+              id="newPassword"
+              maxlength="24"
+              class="form-element"
+            />
+          </div>
+          <div class="show">
+            <input type="checkbox" id="showPassReset" />
+            <label for="showPassReset" class="form-label">Show Password</label>
+          </div>
+          <button type="button" class="next-btn" id="submitNewPass">
+            Submit and Return to Sign in
+          </button>
         </section>
       </div>
       <div class="signin-footer">
