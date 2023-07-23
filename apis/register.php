@@ -14,7 +14,7 @@ $email_exists = $check_email->num_rows();
 if ($email_exists == 0) {
     if (strlen($password) >= 8) {
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-        $query = $mysqli->prepare('INSERT INTO users(user_name, user_email, user_password) VALUES(?,?,?)');
+        $query = $mysqli->prepare('INSERT INTO users(user_name, user_password, user_email) VALUES(?,?,?)');
         $query->bind_param('sss', $username, $hashed_password, $email);
         $query->execute();
 
@@ -26,7 +26,7 @@ if ($email_exists == 0) {
     }
 } else {
     $response['status'] = "failed";
-    $response['message'] = "User already exists.";
+    $response['message'] = "Email already exists.";
 }
 
 echo json_encode($response);
