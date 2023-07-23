@@ -507,3 +507,10 @@ input {
 .btn-container {
   align-self: flex-end;
 }
+li {
+  transition: 0.2s;
+}
+#dropdown li:hover {
+  background-color: #1a73e8;
+  color: white;
+}
