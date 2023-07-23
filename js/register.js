@@ -92,3 +92,26 @@ showPassCheckbox.addEventListener("change", function () {
   ConfirmPasswordInput.type = showPassword ? "text" : "password";
   PasswordInput.type = showPassword ? "text" : "password";
 });
+
+
+submitBtn.addEventListener("click", function () {
+  let data = new FormData();
+  let name = `${FirstNameInput.value} ${LastNameInput.value}`;
+  data.append('user_name', name);
+  data.append('user_password', PasswordInput.value);
+  data.append('user_email', EmailInput.value);
+  
+  axios({
+      "method": "post",
+      "url": "http://localhost/ClassRoom-Clone/apis/register.php",
+      "data": data
+  }).then((result) => {
+      console.log(result)
+      if (result.data.status == "success") {
+          window.location.href = 'classes.html';   
+      }
+      else{ alert("email exits, try other one")};
+  }).catch((err) => {
+      console.error(err)
+  });
+})

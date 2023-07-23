@@ -22,11 +22,11 @@ if ($email_exists == 0) {
         $response['message'] = "user added";
     } else {
         $response['status'] = "failed";
-        $response['message'] = "Password must be at least 8 characters long.";
+        $response['message'] = "Password must be at least 8 characters long";
     }
 } else {
     $response['status'] = "failed";
-    $response['message'] = "Email already exists.";
+    $response['message'] = "Email already exists";
 }
 
 echo json_encode($response);
