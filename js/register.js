@@ -64,9 +64,9 @@ EmailInput.addEventListener("input", function () {
   }
 });
 function showSection1() {
-  document.getElementById("section1").classList.add("active");
-  document.getElementById("section2").classList.remove("active");
-  document.getElementById("section3").classList.remove("active");
+  document.getElementById("section1").style.display = "flex";
+  document.getElementById("section2").style.display = "none";
+  document.getElementById("section3").style.display = "none";
 }
 
 PasswordInput.addEventListener("input", function () {
@@ -91,4 +91,8 @@ showPassCheckbox.addEventListener("change", function () {
   const showPassword = showPassCheckbox.checked;
   ConfirmPasswordInput.type = showPassword ? "text" : "password";
   PasswordInput.type = showPassword ? "text" : "password";
+});
+window.addEventListener("beforeunload", function (event) {
+  event.returnValue =
+    "Are you sure you want to leave? You have unsaved changes.";
 });

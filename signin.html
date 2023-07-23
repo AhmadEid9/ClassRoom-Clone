@@ -3,7 +3,75 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Signin To your Classroom Account</title>
+    <link rel="stylesheet" href="css/signin.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <title>Sign in To your Classroom Account</title>
   </head>
-  <body></body>
+  <body>
+    <div class="signin-container">
+      <div class="header">
+        <img
+          src="Assets/google-icon.svg"
+          alt="google icon"
+          class="google-logo"
+        />
+        <h2 class="signin-title">Sign in to your Classroom Account</h2>
+      </div>
+      <div class="signin-form">
+        <section class="section" id="emailsection">
+          <p>Please fill in your Email</p>
+          <div class="form-group">
+            <label for="Email" class="form-label">Email</label>
+            <input
+              type="email"
+              id="Email"
+              name="Email"
+              class="form-element"
+              placeholder="Your email here .."
+              autocomplete="off"
+              required
+            />
+            <div id="emailError" class="input-error">Invalid email address</div>
+            <div id="emailNotFound" class="input-error">
+              Email is not signed up
+            </div>
+          </div>
+          <div class="btn-container">
+            <button
+              onclick="showPassSection()"
+              type="button"
+              class="next-btn"
+              id="next_sec_2"
+            >
+              Next
+            </button>
+          </div>
+        </section>
+        <section class="section" id="passwordSection">
+          <p>Please fill in your Password</p>
+          <div class="form-group">
+            <p id="passError" class="input-error">Wrong Password</p>
+
+            <label for="Password" class="form-label">Password</label>
+            <input
+              type="password"
+              id="Password"
+              name="Password"
+              minlength="8"
+              class="form-element"
+              required
+            />
+            <p id="forgot_pass">Don't Remember Password?</p>
+          </div>
+          <button type="submit" class="next-btn" id="submit">Signin</button>
+        </section>
+      </div>
+      <div class="signin-footer">
+        <p>Don't have an account? <a href="register.html">Register Now</a></p>
+      </div>
+    </div>
+    <script src="js/signin.js"></script>
+  </body>
 </html>
+<!-- service_hx4h2o4 -->
