@@ -1,4 +1,3 @@
-// JS (signin.js)
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const emailInput = document.getElementById("Email");
 const emailError = document.getElementById("emailError");
@@ -110,7 +109,7 @@ submitNewPass.addEventListener("click", function () {
     newPassword.style.border = "1px solid red";
     return;
   } else {
-    //todo fetch new pass to email
+    //todo fetch new pass to email    api
     passAlert.style.display = "block";
     setTimeout(function () {
       passAlert.style.display = "none";
