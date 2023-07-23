@@ -469,10 +469,18 @@ input {
   color: white;
   background-color: #1a73e8;
   border-radius: 5px;
-  align-self: flex-end;
   cursor: pointer;
   transition: 0.2s;
 }
 .submit-class:hover {
   background-color: #053cac;
+}
+#closeCreateClass {
+  background-color: grey;
+}
+#closeCreateClass:hover {
+  background-color: #2e2e2e;
+}
+.btn-container {
+  align-self: flex-end;
 }
