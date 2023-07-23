@@ -370,7 +370,48 @@ main {
   justify-content: space-around;
   font-size: 10px;
 }
-header{
-  flex-direction: column-reverse;
 }
+
+.dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
+
+.dropdown li {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+.dropdown li:last-child {
+  border-bottom: none;
+}
+.plus-icon {
+  position: relative; 
+  cursor: pointer;
+}
+
+#dropdown {
+  top: 100%;
+  left: 0;
+  width: 150px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 999;
+}
+#dropdown.show {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 88%; 
+  transform: translateX(-50%); 
+  width: 150px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  padding: 10px 0;
+}
+
+
