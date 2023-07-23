@@ -273,7 +273,7 @@ main {
     "middle-card"
     "bottom-card";
   height: 300px;
-  width: 310px;
+  max-width: 310px;
   transition: 0.3s;
 }
 .card:hover {
@@ -364,4 +364,13 @@ main {
 .slider-open.show-slider {
   transform: scale(1, 1);
   opacity: 1;
+}
+@media (max-width: 700px) {
+.main-upper-links, .class-cards-cont{
+  justify-content: space-around;
+  font-size: 10px;
+}
+header{
+  flex-direction: column-reverse;
+}
 }
