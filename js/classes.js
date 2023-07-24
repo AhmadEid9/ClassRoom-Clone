@@ -27,7 +27,6 @@ ClassLinkInput.addEventListener("input", function () {
     ClassLinkInput.style.borderBottom = "2px solid green";
     meetLinkError.style.display = "none";
     createClassBtn.disabled = false;
-
   } else {
     ClassLinkInput.style.borderBottom = "2px solid red";
     meetLinkError.style.display = "block";
@@ -108,8 +107,7 @@ classCodeInput.addEventListener("input", function () {
   }
 });
 
-
-// create classes 
+// create classes
 
 function createNewClass() {
   const class_name = document.getElementById("ClassName").value;
@@ -123,13 +121,13 @@ function createNewClass() {
   data.append("class_description", class_description);
   data.append("class_link", class_link);
   data.append("user_id", user_id);
-  console.log(data)
+  console.log(data);
   axios({
     method: "post",
     url: "http://localhost/ClassRoom-Clone/apis/createClass.php",
     data: data,
   })
-    .then(response => {
+    .then((response) => {
       console.log(response.data);
       if (response.data.status === "success") {
         alert("Class added successfully!");
@@ -142,14 +140,13 @@ function createNewClass() {
         alert(response.data.message);
       }
     })
-    .catch(error => {
+    .catch((error) => {
       console.error("Error:", error);
     });
 }
-
-document.getElementById("submitClass").addEventListener("click", createNewClass);
-
-
+document
+  .getElementById("submitClass")
+  .addEventListener("click", createNewClass);
 
 // show classes
 
@@ -157,12 +154,14 @@ function fetchClassData() {
   const user_id = localStorage.getItem("user_id");
 
   axios
-    .get(`http://localhost/ClassRoom-Clone/apis/showclasses.php?user_id=${user_id}`)
-    .then(response => {
+    .get(
+      `http://localhost/ClassRoom-Clone/apis/showclasses.php?user_id=${user_id}`
+    )
+    .then((response) => {
       const classesData = response.data;
       const classCardsContainer = document.querySelector(".class-cards-cont");
 
-      classesData.forEach(classData => {
+      classesData.forEach((classData) => {
         const classCard = document.createElement("div");
         classCard.classList.add("card");
 
@@ -209,7 +208,7 @@ function fetchClassData() {
         classCardsContainer.appendChild(classCard);
       });
     })
-    .catch(error => {
+    .catch((error) => {
       console.error("Error:", error);
     });
 }

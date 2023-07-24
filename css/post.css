@@ -8,7 +8,7 @@ main {
   flex-direction: column;
   width: 100%;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-family: "Google Sans Text", "Product Sans", "Roboto", Arial, Helvetica,
     sans-serif;
 }
@@ -39,6 +39,9 @@ main {
 .nav {
   display: flex;
   gap: 20px;
+}
+#stream_section {
+  display: none;
 }
 .nav h2 {
   font-weight: lighter;
@@ -238,11 +241,13 @@ button {
   flex: 2;
 }
 #closeCreateAssignment,
-#closeAddFeed {
+#closeAddFeed,
+#closeAddStudent {
   background-color: grey;
 }
 #closeCreateAssignment:hover,
-#closeAddFeed:hover {
+#closeAddFeed:hover,
+#closeAddStudent:hover {
   background-color: rgb(85, 85, 85);
 }
 #createAssignmentSection,
@@ -269,4 +274,62 @@ button {
   display: none;
   margin-top: 20px;
   text-transform: capitalize;
+}
+
+#people_section {
+  display: none;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+}
+#stream_container {
+  display: flex;
+}
+.teacher-header,
+.student-header {
+  padding: 10px;
+  width: 100%;
+  border-bottom: 2px solid black;
+}
+.student-header {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.teachers {
+  padding: 20px 20px 5px 20px;
+  width: 90%;
+  border-bottom: 1px solid grey;
+}
+#addNewStudent {
+  margin: 0;
+}
+#addNewStudentSection {
+  display: none;
+}
+.emailError {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  display: none;
+}
+.email-alert {
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  background-color: rgba(0, 128, 0, 0.719);
+  width: 300px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px;
+  display: none;
+  color: white;
+}
+
+.sub-section-text {
+  margin-top: 10px;
+  color: grey;
+  padding-bottom: 10px;
 }
