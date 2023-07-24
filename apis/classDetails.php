@@ -4,11 +4,11 @@ include('connection.php');
 $classId = $_POST['class_id'];
 
 $query = $mysqli->prepare("SELECT *
-                          FROM classes cls, posts pst, assignments asgn, user_classes usr_cls
-                          WHERE cls.class_id = ? AND
-	                        cls.class_id = asgn.assignment_class AND
-                            pst.post_class = cls.class_id AND
-                            cls.class_id = usr_cls.class_id;"
+                            FROM classes cls
+                            LEFT JOIN posts pst ON cls.class_id = pst.post_class
+                            LEFT JOIN assignments asgn ON cls.class_id = asgn.assignment_class
+                            LEFT JOIN user_classes usr_cls ON cls.class_id = usr_cls.class_id
+                            WHERE cls.class_id = ?;"
                          );
 $query->bind_param("i", $classId);
 $query->execute();
