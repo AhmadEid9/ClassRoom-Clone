@@ -112,7 +112,7 @@ submitBtn.addEventListener("click", function () {
   }).then((result) => {
       console.log(result)
       if (result.data.status == "success") {
-          window.location.href = 'classes.html';   
+          window.location.href = 'signin.html';   
       }
       else{ alert("email exits, try other one")};
   }).catch((err) => {

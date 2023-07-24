@@ -26,6 +26,8 @@ ClassLinkInput.addEventListener("input", function () {
   if (meetLinkRegex.test(ClassLinkInput.value.trim())) {
     ClassLinkInput.style.borderBottom = "2px solid green";
     meetLinkError.style.display = "none";
+    createClassBtn.disabled = false;
+
   } else {
     ClassLinkInput.style.borderBottom = "2px solid red";
     meetLinkError.style.display = "block";
@@ -121,27 +123,32 @@ function createNewClass() {
   data.append("class_description", class_description);
   data.append("class_link", class_link);
   data.append("user_id", user_id);
-
+  console.log(data)
   axios({
     method: "post",
     url: "http://localhost/ClassRoom-Clone/apis/createClass.php",
     data: data,
   })
-  .then(response => {
-    console.log(response.data);
-    if (response.data.status === "success") {
-      alert("Class added successfully!");
-    } else if (response.data.status === "failed" && response.data.message === "Class Link already exists") {
-      alert("Class Link already exists. Please use a different link.");
-    } else {
-      alert(response.data.message);
-    }
+    .then(response => {
+      console.log(response.data);
+      if (response.data.status === "success") {
+        alert("Class added successfully!");
+      } else if (
+        response.data.status === "failed" &&
+        response.data.message === "Class Link already exists"
+      ) {
+        alert("Class Link already exists. Please use a different link.");
+      } else {
+        alert(response.data.message);
+      }
     })
     .catch(error => {
       console.error("Error:", error);
     });
 }
+
 document.getElementById("submitClass").addEventListener("click", createNewClass);
+
 
 
 // show classes
