@@ -105,3 +105,40 @@ classCodeInput.addEventListener("input", function () {
     classCodeInput.style.borderBottom = "2px solid grey";
   }
 });
+
+
+// create classes 
+
+function createNewClass() {
+  const class_name = document.getElementById("ClassName").value;
+  const class_description = document.getElementById("ClassTitle").value;
+  const class_link = document.getElementById("ClassLink").value;
+
+  const user_id = localStorage.getItem("user_id");
+
+  let data = new FormData();
+  data.append("class_name", class_name);
+  data.append("class_description", class_description);
+  data.append("class_link", class_link);
+  data.append("user_id", user_id);
+
+  axios({
+    method: "post",
+    url: "http://localhost/ClassRoom-Clone/apis/createClass.php",
+    data: data,
+  })
+  .then(response => {
+    console.log(response.data);
+    if (response.data.status === "success") {
+      alert("Class added successfully!");
+    } else if (response.data.status === "failed" && response.data.message === "Class Link already exists") {
+      alert("Class Link already exists. Please use a different link.");
+    } else {
+      alert(response.data.message);
+    }
+    })
+    .catch(error => {
+      console.error("Error:", error);
+    });
+}
+document.getElementById("submitClass").addEventListener("click", createNewClass);
