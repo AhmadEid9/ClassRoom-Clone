@@ -1,128 +1,168 @@
-a{
-    text-decoration: none;
+@import url("https://fonts.cdnfonts.com/css/google-sans");
+
+a {
+  text-decoration: none;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-family: "Google Sans Text", "Product Sans", "Roboto", Arial, Helvetica,
+    sans-serif;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin: 0px;
+  width: 70vw;
 }
 
-
-.container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-
-    margin: 0px;
-
-    height: 70vh;
-    width: 70vw;
+.content {
+  display: flex;
+  gap: 30px;
+  width: 100%;
 }
 
-.content{
-    display: flex;
-    
-    gap: 30px;
-    width: 50vw;
+.headlines {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  margin-top: 10px;
+  flex: 4;
 }
 
-.headlines{
-    display: flex;
-    flex-direction: column;
-    
-    width: 70vw;
+.headline {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid;
+  align-items: center;
+  border-color: grey;
+  padding: 10px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.headline:hover {
+  background-color: rgb(228, 228, 228);
 }
 
-.headline{
-    width: 30vw;
-    height: auto;
+.poster {
+  background-color: rgb(0, 0, 141);
+  border-radius: 10px;
 
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid;
+  display: flex;
 
-    border-color: grey;
+  flex-direction: column;
+  justify-content: flex-end;
 
-    padding: 2%;
+  gap: 5px;
+  padding: 3%;
+  height: 40vh;
+  width: 70vw;
+}
+.poster h2 {
+  text-transform: uppercase;
+  font-weight: normal;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0px;
+  padding: 3%;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  width: 100%;
 }
 
+.rows {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
 
-.poster{
-    background-color: rgb(2, 2, 82);
-    border-radius: 5%;
+  width: 70%;
+  height: fit-content;
 
-    display: flex;
-    
-    flex-direction: column;
-    justify-content: flex-end;
-    
-    gap: 5px;
-    padding: 3%;
-    height: 30vh;
-    width: 50vw;
+  gap: 10px;
 }
 
-.row{
-    display: flex;
-    justify-content: space-between;
-    gap: 0px;
-    padding: 3%;
-
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-    width: 100%;
+.text {
+  color: rgb(223, 221, 218);
 }
 
-.rows{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-
-    width: 70%;
-    height: fit-content;
-
-    gap: 10px;
+.right-side {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
 }
 
-.text{
-    color: rgb(223, 221, 218);
+.link-box {
+  padding: 10px;
+  border: solid;
+  border: 1px solid grey;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
-.right-side{
-    display: flex;
-    flex-direction: column;
-
-    width: 100%;
+.assingments {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  border-radius: 5px;
+  gap: 3px;
+  transition: 0.2s;
+}
+.assingments:hover {
+  background-color: rgb(235, 235, 235);
+}
+.assingments h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.icon {
+  height: 50px;
+  width: 50px;
 }
 
-.link-box{
-    padding: 10px;
-    border: solid;
-    border-width: 1px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.single-assingment {
+  padding: 10%;
+  display: flex;
+  flex-direction: column;
 }
-
-.assingments{
-    display: flex;
-    flex-direction: column;
-
-    border: 1px solid grey;
-
-    gap: 3px;
+button {
+  font-family: "Google Sans Text", "Product Sans", "Roboto", Arial, Helvetica,
+    sans-serif;
 }
-
-.icon{
-    height: 50px;
-    width: 50px;
+.meet-btn {
+  padding: 7px 10px;
+  background-color: #1a73e8;
+  color: white;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  width: 80%;
+  cursor: pointer;
+  transition: 0.2s;
 }
-
-.single-assingment{
-    padding: 10%;
-    display: flex;
-    flex-direction: column;
+.meet-btn:hover {
+  background-color: #0d4ea3;
 }
-
-.meet-btn{
-    padding: 3%;
-    background-color: rgb(13, 11, 139);
+.meet-btn:active {
+  opacity: 0.6;
 }
