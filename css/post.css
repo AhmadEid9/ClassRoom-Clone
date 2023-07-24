@@ -42,7 +42,7 @@ main {
 }
 .nav h2 {
   font-weight: lighter;
-  font-size: 18px;
+  font-size: 15px;
   padding: 10px 20px;
   border-bottom: 3px solid white;
   transition: 0.2s;
@@ -237,13 +237,16 @@ button {
 #assignmentTime {
   flex: 2;
 }
-#closeCreateAssignment {
+#closeCreateAssignment,
+#closeAddFeed {
   background-color: grey;
 }
-#closeCreateAssignment:hover {
+#closeCreateAssignment:hover,
+#closeAddFeed:hover {
   background-color: rgb(85, 85, 85);
 }
-#createAssignmentSection {
+#createAssignmentSection,
+#newFeedSection {
   display: none;
 }
 .createAssignmentSection {
@@ -258,7 +261,8 @@ button {
 .create-form {
   position: relative;
 }
-#assignmentError {
+#assignmentError,
+#FeedError {
   font-size: 14px;
   color: red;
   align-self: center;
