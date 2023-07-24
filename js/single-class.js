@@ -47,3 +47,33 @@ addAssignmentButton.addEventListener("click", function () {
 closeCreateAssignment.addEventListener("click", function () {
   createAssignmentSection.style.display = "none";
 });
+
+//.....................................
+const closeAddFeed = document.getElementById("closeAddFeed");
+const submitFeed = document.getElementById("submitFeed");
+
+const FeedTitleInput = document.getElementById("feedTitle");
+const FeedDescriptionInput = document.getElementById("FeedContent");
+const FeedError = document.getElementById("FeedError");
+const postNewFeedBtn = document.getElementById("postNewFeed");
+const newFeedSection = document.getElementById("newFeedSection");
+
+submitFeed.addEventListener("click", function () {
+  if (FeedTitleInput.value === "" || FeedDescriptionInput.value === "") {
+    FeedError.style.display = "block";
+    setTimeout(function () {
+      FeedError.style.display = "none";
+    }, 3000);
+    return;
+  } else {
+    //Todo api add new post
+  }
+});
+postNewFeedBtn.addEventListener("click", function () {
+  newFeedSection.style.display = "flex";
+  FeedTitleInput.value = "";
+  FeedDescriptionInput.value = "";
+});
+closeAddFeed.addEventListener("click", function () {
+  newFeedSection.style.display = "none";
+});
