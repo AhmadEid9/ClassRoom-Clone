@@ -23,7 +23,7 @@ USE `classroom_db` ;
 CREATE TABLE IF NOT EXISTS `classroom_db`.`users` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
   `user_name` VARCHAR(255) NOT NULL,
-  `users_email` VARCHAR(255) NOT NULL,
+  `user_email` VARCHAR(255) NOT NULL,
   `user_password` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`user_id`))
 ENGINE = InnoDB;
@@ -35,7 +35,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `classroom_db`.`classes` (
   `class_id` INT NOT NULL AUTO_INCREMENT,
   `class_name` VARCHAR(255) NOT NULL,
-  `classe_title` VARCHAR(255) NOT NULL,
+  `classe_description` VARCHAR(255) NOT NULL,
   `class_link` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`class_id`))
 ENGINE = InnoDB;
