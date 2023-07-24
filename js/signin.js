@@ -172,6 +172,7 @@ submitBtn.addEventListener("click", function () {
     .then((result) => {
       console.log(result);
       if (result.data.status == "logged in") {
+        localStorage.setItem("user_id", result.data.user_id);
         window.location.href = "classes.html";
       } else if (result.data.status == "user not found") {
         alert("user not found");
