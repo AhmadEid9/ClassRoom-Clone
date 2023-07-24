@@ -219,6 +219,77 @@
           </div>
         </div>
       </div>
+      <div class="createAssignmentSection" id="createAssignmentSection">
+        <div class="create-form">
+          <h2>Add New Assignment</h2>
+          <label for="assignmentName" class="form-label">Assignment Name</label>
+          <input
+            type="text"
+            id="assignmentName"
+            class="form-element"
+            autocomplete="off"
+          />
+          <label for="assignmentDesc" class="form-label"
+            >Assignment Description</label
+          >
+          <textarea
+            id="assignmentDesc"
+            cols="10"
+            class="form-element"
+          ></textarea>
+          <div class="date-time-container">
+            <div class="date-item">
+              <div>
+                <label for="assingmentYear" class="form-label">Year</label>
+                <input
+                  type="text"
+                  id="assingmentYear"
+                  class="form-element"
+                  maxlength="4"
+                  onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                />
+              </div>
+              <div>
+                <label for="assingmentMonth" class="form-label">Month</label>
+                <input
+                  type="text"
+                  id="assingmentMonth"
+                  class="form-element"
+                  maxlength="2"
+                  onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                />
+              </div>
+              <div>
+                <label for="assingmentDay" class="form-label">Day</label>
+                <input
+                  type="text"
+                  id="assingmentDay"
+                  class="form-element"
+                  maxlength="2"
+                  onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                />
+              </div>
+              <div class="time-item">
+                <label for="assignmentTime" class="form-label">Time</label>
+                <input type="time" class="form-element" id="assignmentTime" />
+              </div>
+            </div>
+          </div>
+          <p id="assignmentError">please fill all fields</p>
+          <div class="btn-container">
+            <button
+              class="submit-class"
+              id="closeCreateAssignment"
+              type="button"
+            >
+              Cancel
+            </button>
+            <button class="submit-class" id="submitAssignment" type="submit">
+              Create Assignment
+            </button>
+          </div>
+        </div>
+      </div>
     </main>
   </body>
   <script src="js/single-class.js"></script>
