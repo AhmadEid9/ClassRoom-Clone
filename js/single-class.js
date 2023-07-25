@@ -9,6 +9,8 @@ const assignmentDayInput = document.getElementById("assingmentDay");
 const assignmentTimeInput = document.getElementById("assignmentTime");
 const createAssignmentButton = document.getElementById("submitAssignment");
 const assignmentError = document.getElementById("assignmentError");
+const meeting_link = document.getElementById("meeting_link");
+meeting_link.href = localStorage.getItem("class_link");
 const createAssignmentSection = document.getElementById(
   "createAssignmentSection"
 );
@@ -233,6 +235,7 @@ function createAssignment() {
       if (response.data.message === "Assignment already exists") {
         alert("Failed, Assignment already exists!");
       } else {
+        addNewStudentSection.style.display = "none";
         alert("Assignment Added");
       }
     })
@@ -247,8 +250,8 @@ function createPost() {
   let data = new FormData();
   data.append("class_id", class_id);
   data.append("user_id", user_id);
-  data.append("post_title", postTitle.value);
-  data.append("post_descriptions", postDescription.value);
+  data.append("post_title", FeedTitleInput.value);
+  data.append("post_descriptions", FeedDescriptionInput.value);
   axios({
     method: "post",
     url: "http://localhost/ClassRoom-Clone/apis/createPosts.php",
@@ -259,6 +262,7 @@ function createPost() {
       if (response.data.message === "post already exists") {
         alert("Failed, Post already exists!");
       } else {
+        newFeedSection.style.display = "none";
         alert("Post Added");
       }
     })
