@@ -14,7 +14,7 @@ const createAssignmentSection = document.getElementById(
 );
 const closeCreateAssignment = document.getElementById("closeCreateAssignment");
 const addAssignmentButton = document.getElementById("createAssignment");
-
+let dueDate = "";
 createAssignmentButton.addEventListener("click", function () {
   if (
     assignmentDescInput.value === "" ||
@@ -30,7 +30,16 @@ createAssignmentButton.addEventListener("click", function () {
     }, 3000);
     return;
   } else {
-    //todo create assignment api
+    dueDate =
+      assignmentYearInput.value +
+      "-" +
+      assignmentMonthInput.value +
+      "-" +
+      assignmentDayInput.value +
+      " " +
+      assignmentTimeInput.value +
+      ":00";
+    createAssignment();
   }
 });
 
@@ -115,7 +124,7 @@ submitAddStudentBtn.addEventListener("click", function () {
 function sendMail() {
   emailjs.init("r04vWJ2vgDHJ6-ava"); // Public key
   const emailParams = {
-    message: "https://meet.google.com/zox-wjgv-jer", //todo change to take value of class link from api
+    message: localStorage.getItem(class_link), //check
     to: studentEmailInput.value.trim(),
   };
 
@@ -168,39 +177,92 @@ function closeSubSections() {
   newFeedSection.style.display = "none";
 }
 
-
-
 // show-details
-  function fetchClassDetails() {
-    let class_id = localStorage.getItem('class_id');
-    let user_id= localStorage.getItem('user_id');
- 
-    const formData = new FormData();
-    formData.append('class_id', class_id);
-    formData.append('user_id', user_id);
-  
-    axios
-      .post('http://localhost/ClassRoom-Clone/apis/classDetails.php', formData)
-      .then((response) => {
-        const classDetails = response.data;
-        // const classDetailsContainer = document.getElementById('classDetailsContainer');
-        // classDetailsContainer.innerHTML = '';
-        let class_title= document.getElementById('class-title')
-        let class_desc= document.getElementById('class-description')
-        let link_box= document.getElementById('link')
+function fetchClassDetails() {
+  let class_id = localStorage.getItem("class_id");
+  let user_id = localStorage.getItem("user_id");
 
-        classDetails.forEach((classDetail) => {
-          class_title.textContent = classDetail.class_name;
-          class_desc.textContent = classDetail.classe_description;
-          link_box.textContent = classDetail.class_link;
-          classDetailsContainer.appendChild(detailDiv);
-        });
-      })
-      .catch((error) => {
-        console.error('Error:', error);
+  const formData = new FormData();
+  formData.append("class_id", class_id);
+  formData.append("user_id", user_id);
+
+  axios
+    .post("http://localhost/ClassRoom-Clone/apis/classDetails.php", formData)
+    .then((response) => {
+      const classDetails = response.data;
+      // const classDetailsContainer = document.getElementById('classDetailsContainer');
+      // classDetailsContainer.innerHTML = '';
+      let class_title = document.getElementById("class-title");
+      let class_desc = document.getElementById("class-description");
+      let link_box = document.getElementById("link");
+
+      classDetails.forEach((classDetail) => {
+        class_title.textContent = classDetail.class_name;
+        class_desc.textContent = classDetail.classe_description;
+        link_box.textContent = classDetail.class_link;
+        classDetailsContainer.appendChild(detailDiv);
       });
-  } 
-  document.addEventListener('DOMContentLoaded', function() {
-    fetchClassDetails();
-  });
-  
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+document.addEventListener("DOMContentLoaded", function () {
+  fetchClassDetails();
+});
+
+//...............................................
+
+function createAssignment() {
+  const class_id = localStorage.getItem("class_id");
+  const user_id = localStorage.getItem("user_id");
+
+  let data = new FormData();
+  data.append("class_id", class_id);
+  data.append("user_id", user_id);
+  data.append("assignment_title", assignmentNameInput.value);
+  data.append("assignment_description", assignmentDescInput.value);
+  data.append("due_date", dueDate);
+  axios({
+    method: "post",
+    url: "http://localhost/ClassRoom-Clone/apis/createAssignments.php",
+    data: data,
+  })
+    .then((response) => {
+      console.log(response.data);
+      if (response.data.message === "Assignment already exists") {
+        alert("Failed, Assignment already exists!");
+      } else {
+        alert("Assignment Added");
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+function createPost() {
+  const class_id = localStorage.getItem("class_id");
+  const user_id = localStorage.getItem("user_id");
+
+  let data = new FormData();
+  data.append("class_id", class_id);
+  data.append("user_id", user_id);
+  data.append("post_title", postTitle.value);
+  data.append("post_descriptions", postDescription.value);
+  axios({
+    method: "post",
+    url: "http://localhost/ClassRoom-Clone/apis/createPosts.php",
+    data: data,
+  })
+    .then((response) => {
+      console.log(response.data);
+      if (response.data.message === "post already exists") {
+        alert("Failed, Post already exists!");
+      } else {
+        alert("Post Added");
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
