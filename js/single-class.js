@@ -9,7 +9,6 @@ const assignmentDayInput = document.getElementById("assingmentDay");
 const assignmentTimeInput = document.getElementById("assignmentTime");
 const createAssignmentButton = document.getElementById("submitAssignment");
 const assignmentError = document.getElementById("assignmentError");
-var fixed_meet_link = "";
 var fixed_class_Id = localStorage.getItem("class_id");
 
 const createAssignmentSection = document.getElementById(
@@ -125,8 +124,11 @@ submitAddStudentBtn.addEventListener("click", function () {
 
 function sendMail() {
   emailjs.init("r04vWJ2vgDHJ6-ava"); // Public key
+  let class_code= localStorage.getItem('class_code')
+  console.log(`hi ${class_code}`);
+
   const emailParams = {
-    message: fixed_meet_link, //check
+    message: class_code, //check
     to: studentEmailInput.value.trim(),
   };
 
@@ -202,9 +204,8 @@ function fetchClassDetails() {
         class_title.textContent = classDetail.class_name;
         class_desc.textContent = classDetail.classe_description;
         link_box.textContent = classDetail.class_link;
-        // classDetailsContainer.appendChild(detailDiv);
-
-        fixed_meet_link = classDetail.class_link;
+   
+        localStorage.setItem('class_code', classDetail.class_link)
       });
     })
     .catch((error) => {
@@ -300,10 +301,9 @@ function getClassTeachers() {
       });
     });
 }
-console.log(fixed_meet_link);
 const meeting_link = document.getElementById("meeting-link");
 meeting_link.addEventListener("click", function () {
-  window.open(fixed_meet_link, "_blank");
+  window.open(class_code, "_blank");
 });
 
 window.onload = getClassTeachers();
