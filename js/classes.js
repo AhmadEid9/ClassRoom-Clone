@@ -148,6 +148,38 @@ document
   .getElementById("submitClass")
   .addEventListener("click", createNewClass);
 
+// join classes
+
+function joinClass() {
+  const class_link = document.getElementById("ClassCode").value;
+  const user_id = localStorage.getItem("user_id");
+
+  let data = new FormData();
+  data.append("class_link", class_link);
+  data.append("user_id", user_id);
+  axios({
+    method: "post",
+    url: "http://localhost/ClassRoom-Clone/apis/joinClass.php",
+    data: data,
+  })
+    .then((response) => {
+      console.log(response.data);
+      if (response.data.message === "Class already joined") {
+        alert("Failed, Class already joined!");
+      } else if (
+        response.data.message === "Class doesn't exist"
+      ) {
+        alert("Failed, Class doesn't exist");
+      } else {
+        alert("Class Added");
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+  document.getElementById("submitJoin").addEventListener("click", joinClass);
+
 // show classes
 
 function fetchClassData() {
