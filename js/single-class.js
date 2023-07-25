@@ -74,7 +74,7 @@ submitFeed.addEventListener("click", function () {
     }, 3000);
     return;
   } else {
-    //Todo api add new post
+    createPost();
   }
 });
 postNewFeedBtn.addEventListener("click", function () {
