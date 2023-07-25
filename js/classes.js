@@ -201,7 +201,7 @@ function fetchClassData() {
           <div class="card-top">
             <div class="card-top-top">
               <img src="https://lh3.googleusercontent.com/a-/AOh14Gh-UFCjdhVNr0xUwyC8QYyyZAnO_D-depcTebpu=s75-c" alt="" class="absolute" />
-              <a href="#" style="text-decoration: none; color: #fff" data-classid="${classData.class_id}">
+              <a href="#" style="text-decoration: none; color: #fff" onclick="goToClass(${classData.class_id})" data-classid="${classData.class_id}">
                 <div class="card-title"><h1>${classData.class_name}</h1></div>
               </a>
               <div class="card-title-classes"><h2>${classData.classe_description}</h2></div>
@@ -245,3 +245,43 @@ function fetchClassData() {
     });
 }
 fetchClassData();
+
+
+function goToClass(class_id) {
+localStorage.setItem('class_id', class_id);
+window.location.href = "single-class.html";
+}
+
+  //   console.log("hi")
+//   const formData = new FormData();
+//   formData.append('class_id', class_id);
+
+//   axios
+//     .post('http://localhost/ClassRoom-Clone/apis/classDetails.php', formData)
+//     .then((response) => {
+//       const classDetails = response.data;
+//       const classDetailsContainer = document.getElementById('classDetailsContainer');
+//       classDetailsContainer.innerHTML = '';
+
+//       classDetails.forEach((classDetail) => {
+//         const detailDiv = document.createElement('div');
+//         detailDiv.textContent = classDetail.class_link;
+//         classDetailsContainer.appendChild(detailDiv);
+//       });
+//     })
+//     .catch((error) => {
+//       console.error('Error:', error);
+//     });
+// }
+
+// const aElements = document.querySelectorAll("[data-classid]");
+// aElements.forEach((aElement) => {
+//   aElement.addEventListener("click", (event) => {
+//     console.log(hi)
+//     event.preventDefault(); 
+//     const class_id = aElement.getAttribute("data-classid");
+//     console.log(class_id)
+//     fetchClassDetails(class_id);
+//   });
+// });
+

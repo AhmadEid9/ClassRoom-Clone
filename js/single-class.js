@@ -165,3 +165,38 @@ function closeSubSections() {
   createAssignmentSection.style.display = "none";
   newFeedSection.style.display = "none";
 }
+
+
+
+// show-details
+  function fetchClassDetails() {
+    alert("hi")
+    let class_id = localStorage.getItem('class_id');
+    let user_id= localStorage.getItem('user_id');
+ 
+    const formData = new FormData();
+    formData.append('class_id', class_id);
+    formData.append('user_id', user_id);
+  
+    axios
+      .post('http://localhost/ClassRoom-Clone/apis/classDetails.php', formData)
+      .then((response) => {
+        const classDetails = response.data;
+        const classDetailsContainer = document.getElementById('classDetailsContainer');
+        classDetailsContainer.innerHTML = '';
+  
+        classDetails.forEach((classDetail) => {
+          const detailDiv = document.createElement('div');
+          detailDiv.textContent = classDetail.class_link;
+          classDetailsContainer.appendChild(detailDiv);
+        });
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  } 
+  document.addEventListener('DOMContentLoaded', function() {
+    // This function will be executed when the initial HTML document has finished loading
+    fetchClassDetails();
+  });
+  
