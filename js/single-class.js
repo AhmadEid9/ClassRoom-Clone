@@ -172,7 +172,6 @@ function closeSubSections() {
 
 // show-details
   function fetchClassDetails() {
-    alert("hi")
     let class_id = localStorage.getItem('class_id');
     let user_id= localStorage.getItem('user_id');
  
@@ -184,12 +183,16 @@ function closeSubSections() {
       .post('http://localhost/ClassRoom-Clone/apis/classDetails.php', formData)
       .then((response) => {
         const classDetails = response.data;
-        const classDetailsContainer = document.getElementById('classDetailsContainer');
-        classDetailsContainer.innerHTML = '';
-  
+        // const classDetailsContainer = document.getElementById('classDetailsContainer');
+        // classDetailsContainer.innerHTML = '';
+        let class_title= document.getElementById('class-title')
+        let class_desc= document.getElementById('class-description')
+        let link_box= document.getElementById('link')
+
         classDetails.forEach((classDetail) => {
-          const detailDiv = document.createElement('div');
-          detailDiv.textContent = classDetail.class_link;
+          class_title.textContent = classDetail.class_name;
+          class_desc.textContent = classDetail.classe_description;
+          link_box.textContent = classDetail.class_link;
           classDetailsContainer.appendChild(detailDiv);
         });
       })
@@ -198,7 +201,6 @@ function closeSubSections() {
       });
   } 
   document.addEventListener('DOMContentLoaded', function() {
-    // This function will be executed when the initial HTML document has finished loading
     fetchClassDetails();
   });
   

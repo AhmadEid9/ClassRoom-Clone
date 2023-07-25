@@ -318,7 +318,10 @@ button {
   display: none;
   color: white;
 }
-
+#link{
+  padding: 15px;
+  margin-top: 0;
+}
 .sub-section-text {
   margin-top: 10px;
   color: grey;
