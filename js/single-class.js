@@ -105,7 +105,6 @@ studentEmailInput.addEventListener("input", function () {
   if (!emailRegex.test(studentEmailInput.value.trim())) {
     studentEmailInput.style.borderBottom = "2px solid red";
     emailError.style.display = "block";
-    submitAddStudentBtn.disabled = true;
   } else {
     emailError.style.display = "none";
     submitAddStudentBtn.disabled = false;
@@ -127,7 +126,7 @@ submitAddStudentBtn.addEventListener("click", function () {
 function sendMail() {
   emailjs.init("r04vWJ2vgDHJ6-ava"); // Public key
   const emailParams = {
-    message: localStorage.getItem(class_link), //check
+    message: fixed_meet_link, //check
     to: studentEmailInput.value.trim(),
   };
 
