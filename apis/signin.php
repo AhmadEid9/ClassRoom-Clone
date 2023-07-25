@@ -16,7 +16,7 @@ $query->fetch();
 
 $num_rows = $query->num_rows();
 if ($num_rows == 0) {
-    $response['status'] = "user not found";
+    $response['status'] = "User not found";
 } else {
     if (password_verify($password, $hashed_password)) {
         $response['status'] = 'logged in';
@@ -24,7 +24,7 @@ if ($num_rows == 0) {
         $response['user_name'] = $username;
         $response['user_email'] = $email;
     } else {
-        $response['status'] = "wrong password";
+        $response['status'] = "Wrong password";
     }
 }
 echo json_encode($response);

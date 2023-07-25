@@ -41,6 +41,13 @@ let ConfirmPasswordInput = document.getElementById("Confirm_Password");
 let submitBtn = document.getElementById("submit");
 showPassCheckbox = document.getElementById("showPass");
 
+const response_message = document.getElementById('response-message');
+const message_modal = document.getElementById('message-modal')
+const modal_close = document.getElementById('modal-close')
+
+
+modal_close.addEventListener('click', hideResponseMessageModal)
+
 FirstNameInput.addEventListener("input", function () {
   if (FirstNameInput.value.trim() !== "") {
     FirstNameInput.style.border = "1px solid grey";
@@ -92,10 +99,6 @@ showPassCheckbox.addEventListener("change", function () {
   ConfirmPasswordInput.type = showPassword ? "text" : "password";
   PasswordInput.type = showPassword ? "text" : "password";
 });
-window.addEventListener("beforeunload", function (event) {
-  event.returnValue =
-    "Are you sure you want to leave? You have unsaved changes.";
-});
 
 
 submitBtn.addEventListener("click", function () {
@@ -114,8 +117,17 @@ submitBtn.addEventListener("click", function () {
       if (result.data.status == "success") {
           window.location.href = 'signin.html';   
       }
-      else{ alert("email exits, try other one")};
+      else{ showResponseMessageModal(result.data.message)};
   }).catch((err) => {
       console.error(err)
   });
 })
+
+function showResponseMessageModal(message) {
+  message_modal.style.display = "flex";
+  response_message.innerText = message
+}
+
+function hideResponseMessageModal() {
+  message_modal.style.display = "none";
+}

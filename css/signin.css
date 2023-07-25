@@ -209,3 +209,22 @@ a:hover {
 .signin-footer {
   font-size: 14px;
 }
+
+
+.modal {
+  height: 20%;
+  width: 28%;
+
+  border: 1px solid grey;
+
+  position: absolute;
+  top: 40%;
+  left: 34.55%;
+
+  padding: 2%;
+
+  background-color: white;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}

@@ -9,8 +9,15 @@ const resetPasswordSection = document.getElementById("resetPassword");
 const backToEmail = document.getElementById("backToEmail");
 const PasswordInput = document.getElementById("Password");
 const passAlert = document.getElementById("passAlert");
-var generatedCode = 0;
-var fixedCode = 0;
+
+const response_message = document.getElementById('response-message');
+const message_modal = document.getElementById('message-modal')
+const modal_close = document.getElementById('modal-close')
+
+
+modal_close.addEventListener('click', hideResponseMessageModal)
+let generatedCode = 0;
+let fixedCode = 0;
 
 backToEmail.addEventListener("click", function () {
   showEmailSection();
@@ -147,17 +154,17 @@ function showPassSection() {
   }
 }
 
-window.addEventListener("load", function () {
-  emailInput.addEventListener("input", function () {
-    if (!emailRegex.test(emailInput.value.trim())) {
-      emailInput.style.border = "1px solid red";
-      emailError.style.display = "block";
-    } else {
-      emailInput.style.border = "1px solid grey";
-      emailError.style.display = "none";
-    }
-  });
-});
+// window.addEventListener("load", function () {
+//   emailInput.addEventListener("input", function () {
+//     if (!emailRegex.test(emailInput.value.trim())) {
+//       emailInput.style.border = "1px solid red";
+//       emailError.style.display = "block";
+//     } else {
+//       emailInput.style.border = "1px solid grey";
+//       emailError.style.display = "none";
+//     }
+//   });
+// });
 
 submitBtn.addEventListener("click", function () {
   let data = new FormData();
@@ -174,12 +181,9 @@ submitBtn.addEventListener("click", function () {
       if (result.data.status == "logged in") {
         localStorage.setItem("user_id", result.data.user_id);
         window.location.href = "classes.html";
-      } else if (result.data.status == "user not found") {
-        alert("user not found");
-      } else {
-        alert("wrong password");
-      }
-    })
+      } else
+        showResponseMessageModal(result.data.status);
+      })
     .catch((err) => {
       console.error(err);
     });
@@ -198,15 +202,21 @@ function update_pass (){
   })
     .then((result) => {
       console.log(result.data);
-      if (result.data.message == "Password changed successfully") {
+      if (result.data.status == "Password changed successfully") {
         window.location.href = "classes.html";
-      } else if (result.data.message == "Email does not exist") {
-        alert("email not found");
-      } else {
-        alert("Password must be at least 8 characters long");
-      }
-    })
+      }else
+        showResponseMessageModal(result.data.status);
+      })
     .catch((err) => {
       console.error(err);
     });
+}
+
+function showResponseMessageModal(message) {
+  message_modal.style.display = "flex";
+  response_message.innerText = message
+}
+
+function hideResponseMessageModal() {
+  message_modal.style.display = "none";
 }
