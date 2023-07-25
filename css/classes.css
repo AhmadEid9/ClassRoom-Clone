@@ -532,3 +532,40 @@ li {
 .signout:active {
   opacity: 0.6;
 }
+
+.message-modal {
+  height: 20%;
+  width: 28%;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+
+  border: 1px solid grey;
+
+  position: absolute;
+  top: 40%;
+  left: 34.55%;
+
+  padding: 2%;
+
+  background-color: white;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.next-btn {
+  padding: 8px;
+  border-radius: 3px;
+  width: 100px;
+  min-width: fit-content;
+  margin-top: 20px;
+  align-self: flex-end;
+  outline: none;
+  border: none;
+  background: #1a73e8;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}

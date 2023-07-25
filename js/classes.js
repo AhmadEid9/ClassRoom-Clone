@@ -7,6 +7,14 @@ let ClassLinkInput = document.getElementById("ClassLink");
 const meetLinkRegex = /^(https?:\/\/)?meet.google.com\/[a-z0-9\-]+$/i;
 const meetLinkError = document.getElementById("meetLinkError");
 const dropDownJoinCreate = document.getElementById("dropdown");
+
+const response_message = document.getElementById('response-message');
+const message_modal = document.getElementById('message-modal');
+const modal_close = document.getElementById('modal-close');
+
+
+modal_close.addEventListener('click', hideResponseMessageModal);
+
 function showCreateClassModal() {
   createClassSection.style.display = "flex";
   dropDownJoinCreate.style.display = "none";
@@ -128,17 +136,7 @@ function createNewClass() {
     data: data,
   })
     .then((response) => {
-      console.log(response.data);
-      if (response.data.status === "success") {
-        alert("Class added successfully!");
-      } else if (
-        response.data.status === "failed" &&
-        response.data.message === "Class Link already exists"
-      ) {
-        alert("Class Link already exists. Please use a different link.");
-      } else {
-        alert(response.data.message);
-      }
+      showResponseMessageModal(response.data.message);
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -164,13 +162,7 @@ function joinClass() {
   })
     .then((response) => {
       console.log(response.data);
-      if (response.data.message === "Class already joined") {
-        alert("Failed, Class already joined!");
-      } else if (response.data.message === "Class doesn't exist") {
-        alert("Failed, Class doesn't exist");
-      } else {
-        alert("Class Added");
-      }
+      showResponseMessageModal(response.data.message);
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -256,6 +248,15 @@ fetchClassData();
 function goToClass(class_id) {
   localStorage.setItem("class_id", class_id);
   window.location.href = "single-class.html";
+}
+
+function showResponseMessageModal(message) {
+  message_modal.style.display = "flex";
+  response_message.innerText = message + "\nRefresh to show changes"
+}
+
+function hideResponseMessageModal() {
+  message_modal.style.display = "none";
 }
 
 //   console.log("hi")
