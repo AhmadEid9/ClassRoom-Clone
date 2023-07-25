@@ -352,3 +352,10 @@ button {
   .new-assignment {
     align-self: auto;
 }}
+
+#class-title{
+  font-size: 40px;
+}
+#class-description{
+  font-size: 25px;
+}
