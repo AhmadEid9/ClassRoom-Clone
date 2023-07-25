@@ -201,7 +201,7 @@ function fetchClassData() {
           <div class="card-top">
             <div class="card-top-top">
               <img src="https://lh3.googleusercontent.com/a-/AOh14Gh-UFCjdhVNr0xUwyC8QYyyZAnO_D-depcTebpu=s75-c" alt="" class="absolute" />
-              <a href="#" style="text-decoration: none; color: #fff">
+              <a href="#" style="text-decoration: none; color: #fff" data-classid="${classData.class_id}">
                 <div class="card-title"><h1>${classData.class_name}</h1></div>
               </a>
               <div class="card-title-classes"><h2>${classData.classe_description}</h2></div>

@@ -3,7 +3,7 @@ include('connection.php');
 
 $userId = $_GET['user_id'];
 
-$stmt = $mysqli->prepare("SELECT class_name, classe_description 
+$stmt = $mysqli->prepare("SELECT class_name, classe_description, classes.class_id
                          FROM classes 
                          JOIN user_classes ON classes.class_id = user_classes.class_id
                          WHERE user_id = ?");
