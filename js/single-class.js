@@ -105,7 +105,7 @@ studentEmailInput.addEventListener("input", function () {
   if (!emailRegex.test(studentEmailInput.value.trim())) {
     studentEmailInput.style.borderBottom = "2px solid red";
     emailError.style.display = "block";
-    submitAddStudentBtn.disabled = ture;
+    submitAddStudentBtn.disabled = true;
   } else {
     emailError.style.display = "none";
     submitAddStudentBtn.disabled = false;
