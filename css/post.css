@@ -9,8 +9,7 @@ main {
   width: 100%;
   align-items: center;
   justify-content: flex-start;
-  font-family: "Google Sans Text", "Product Sans", "Roboto", Arial, Helvetica,
-    sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 .container {
   display: flex;
@@ -18,7 +17,6 @@ main {
   align-items: center;
   justify-content: center;
   gap: 10px;
-
   margin: 0px;
   width: 70vw;
 }
@@ -32,7 +30,6 @@ main {
 .headlines {
   display: flex;
   flex-direction: column;
-  width: 70vw;
   margin-top: 10px;
   flex: 4;
 }
@@ -67,31 +64,31 @@ main {
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
-  border: 1px solid;
   align-items: center;
-  border-color: grey;
   padding: 10px;
   margin-bottom: 20px;
   transition: 0.2s;
   cursor: pointer;
+  border: 1px solid #dadce0;
+  border-radius: 10px;
+  overflow: hidden;
 }
 .headline:hover {
   background-color: rgb(228, 228, 228);
 }
 
 .poster {
-  background-color: green;
-  border-radius: 10px;
-
+  background: linear-gradient(to left, rgb(140, 223, 140), rgb(27, 135, 27));;
   display: flex;
-
   flex-direction: column;
   justify-content: flex-end;
-
   gap: 5px;
   padding: 3%;
   height: 40vh;
   width: 70vw;
+  border: 1px solid #dadce0;
+  border-radius: 10px;
+  overflow: hidden;
 }
 .poster h2 {
   text-transform: uppercase;
@@ -102,21 +99,14 @@ main {
   justify-content: space-between;
   gap: 0px;
   padding: 3%;
-
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
   width: 100%;
-}
-
-.rows {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-
   width: 70%;
   height: fit-content;
-
   gap: 10px;
 }
 
@@ -133,25 +123,26 @@ main {
 
 .link-box {
   padding: 10px;
-  border: solid;
-  border: 1px solid grey;
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 10px;
   margin-bottom: 20px;
+  border: 1px solid #dadce0;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .assingments {
   display: flex;
   flex-direction: column;
-  border: 1px solid grey;
-  border-radius: 5px;
   gap: 3px;
   transition: 0.2s;
   cursor: default;
+  border: 1px solid #dadce0;
+  border-radius: 10px;
+  overflow: hidden;
 }
 .assingments:hover {
   background-color: rgb(235, 235, 235);
@@ -171,47 +162,48 @@ main {
   flex-direction: column;
 }
 button {
-  font-family: "Google Sans Text", "Product Sans", "Roboto", Arial, Helvetica,
-    sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 .meet-btn {
-  padding: 7px 10px;
-  background-color: #1a73e8;
+  padding: 9px 10px;
+  background-color: rgb(19,115,51);
   color: white;
-  border-radius: 3px;
+  border-radius: 7px;
   outline: none;
   border: none;
-  width: 80%;
+  width: 90%;
   cursor: pointer;
   transition: 0.2s;
 }
 .meet-btn:hover {
-  background-color: #0d4ea3;
+  background-color: rgb(12, 88, 37);
 }
 .meet-btn:active {
   opacity: 0.6;
 }
 
 .new-assignment {
-  padding: 10px 20px;
+  padding: 10px 18px;
   margin-bottom: 25px;
   align-self: flex-end;
   border-radius: 5px;
-  border: 1px solid grey;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid #dadce0;
+  border-radius: 10px;
+  overflow: hidden;
 }
 .new-assignment h2 {
   font-weight: normal;
   margin-bottom: 20px;
-  color: #1a73e8;
+  color: rgb(19,115,51);
 }
 #createAssignment {
   padding: 10px 15px;
-  background-color: #1a73e8;
+  background-color: rgb(19,115,51);
   color: white;
-  border-radius: 2.5px;
+  border-radius: 7px;
   outline: none;
   border: none;
   width: 100%;
@@ -219,10 +211,10 @@ button {
   transition: 0.2s;
 }
 #createAssignment:hover {
-  background-color: #0d4ea3;
+  background-color: rgb(12, 88, 37);
 }
 #postNewFeed p {
-  color: #1a73e8;
+  color: rgb(19,115,51);
 }
 .date-time-container {
   display: flex;
@@ -332,4 +324,27 @@ button {
   margin-top: 10px;
   color: grey;
   padding-bottom: 10px;
+}
+
+.board{
+  color: #fff;
+  cursor: default;
+  flex-shrink: 0;
+  height: 2.5rem;
+  line-height: 0;
+  margin: 0 1rem 0 1.5rem;
+  width: 2.5rem;
+  background-color: rgb(30,142,62);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 17px;
+}
+.new-assignment h2{
+  font-size: 18px;
+}
+@media (max-width: 700px) {
+  header, .content  {
+    flex-direction: column;
+  }
 }

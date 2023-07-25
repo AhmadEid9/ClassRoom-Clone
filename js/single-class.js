@@ -9,10 +9,7 @@ const assignmentDayInput = document.getElementById("assingmentDay");
 const assignmentTimeInput = document.getElementById("assignmentTime");
 const createAssignmentButton = document.getElementById("submitAssignment");
 const assignmentError = document.getElementById("assignmentError");
-const createAssignmentSection = document.getElementById(
-  "createAssignmentSection"
-);
-
+const createAssignmentSection = document.getElementById("createAssignmentSection");
 const closeCreateAssignment = document.getElementById("closeCreateAssignment");
 const addAssignmentButton = document.getElementById("createAssignment");
 
