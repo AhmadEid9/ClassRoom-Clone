@@ -10,7 +10,7 @@ submitBtn.addEventListener("click", () => {
   for (const [index, file] of files.entries()) {
     formData.append(`file${index}`, file); //appended files to form data
   }
-  //upload form data with axios api, if success call showSubmittedFunction
+  //upload form data with axios api, if success call showSubmitted function below
 });
 
 function showSubmitted() {
@@ -19,10 +19,6 @@ function showSubmitted() {
   submitBtn.style.backgroundColor = "grey";
   submitBtn.style.border = "none";
 }
-submitBtn.disabled = true;
-submitBtn.innerHTML = "Submitted";
-submitBtn.style.backgroundColor = "grey";
-submitBtn.style.border = "none";
 
 //.......................................constants that need get from assignments api
 const assignmentDescription = document.getElementById("assignmentDescription");
