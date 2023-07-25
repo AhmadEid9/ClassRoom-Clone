@@ -166,9 +166,7 @@ function joinClass() {
       console.log(response.data);
       if (response.data.message === "Class already joined") {
         alert("Failed, Class already joined!");
-      } else if (
-        response.data.message === "Class doesn't exist"
-      ) {
+      } else if (response.data.message === "Class doesn't exist") {
         alert("Failed, Class doesn't exist");
       } else {
         alert("Class Added");
@@ -178,7 +176,7 @@ function joinClass() {
       console.error("Error:", error);
     });
 }
-  document.getElementById("submitJoin").addEventListener("click", joinClass);
+document.getElementById("submitJoin").addEventListener("click", joinClass);
 
 // show classes
 
@@ -246,13 +244,12 @@ function fetchClassData() {
 }
 fetchClassData();
 
-
 function goToClass(class_id) {
-localStorage.setItem('class_id', class_id);
-window.location.href = "single-class.html";
+  localStorage.setItem("class_id", class_id);
+  window.location.href = "single-class.html";
 }
 
-  //   console.log("hi")
+//   console.log("hi")
 //   const formData = new FormData();
 //   formData.append('class_id', class_id);
 
@@ -278,10 +275,9 @@ window.location.href = "single-class.html";
 // aElements.forEach((aElement) => {
 //   aElement.addEventListener("click", (event) => {
 //     console.log(hi)
-//     event.preventDefault(); 
+//     event.preventDefault();
 //     const class_id = aElement.getAttribute("data-classid");
 //     console.log(class_id)
 //     fetchClassDetails(class_id);
 //   });
 // });
-

@@ -73,7 +73,8 @@ header {
   color: #606368;
   padding-left: 5px;
   font-size: 19px;
-  font-family: "Poppins", sans-serif;}
+  font-family: "Poppins", sans-serif;
+}
 .header-right {
   display: flex;
   justify-content: space-between;
@@ -512,4 +513,22 @@ li {
 #dropdown li:hover {
   background-color: #1a73e8;
   color: white;
+}
+
+.signout {
+  background-color: red;
+  color: white;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 3px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-right: 15px;
+}
+.signout:hover {
+  background-color: rgb(255, 101, 101);
+}
+.signout:active {
+  opacity: 0.6;
 }

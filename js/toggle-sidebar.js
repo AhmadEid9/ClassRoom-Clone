@@ -18,17 +18,25 @@ window.addEventListener("click", (event) => {
   }
 });
 
-
 document.addEventListener("DOMContentLoaded", function () {
   const plusIcon = document.querySelector(".plus-icon");
   const dropdown = document.getElementById("dropdown");
 
   plusIcon.addEventListener("click", function () {
-    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-    dropdown.classList.toggle('show');
-
+    dropdown.style.display =
+      dropdown.style.display === "block" ? "none" : "block";
+    dropdown.classList.toggle("show");
   });
 });
-
-
-
+function preventBack() {
+  window.history.forward();
+}
+const signout = document.getElementById("signout");
+signout.addEventListener("click", function () {
+  localStorage.clear();
+  window.location.href = "landing.html";
+  setTimeout("preventBack()", 0);
+  window.onunload = function () {
+    null;
+  };
+});
