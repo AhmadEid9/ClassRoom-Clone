@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment Information</title>
+
+    <link rel="stylesheet" href="css/assignment.css" />
+    <link rel="stylesheet" href="css/classes.css" />
+  </head>
+  <body>
+    <div class="slider-open">
+      <div class="slider-top">
+        <div class="icon-link-cont" style="background-color: #e5eefb">
+          <div class="icon-slider">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M12 5.69l5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"
+              />
+            </svg>
+          </div>
+          <div class="slider-link">
+            <a href="index.html">Classes</a>
+          </div>
+        </div>
+        <div class="icon-link-cont">
+          <div class="icon-slider">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V10h16v11zm0-13H4V5h16v3z"
+              />
+            </svg>
+          </div>
+          <div class="slider-link">
+            <a href="#">Calender</a>
+          </div>
+        </div>
+      </div>
+      <div class="slider-middle">
+        <div class="slider-title-up">
+          <h6>Enrolled</h6>
+        </div>
+        <div class="icon-link-cont">
+          <div class="icon-slider">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              enable-background="new 0 0 24 24"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <g><rect fill="none" height="24" width="24" /></g>
+              <g>
+                <g>
+                  <path
+                    d="M20,3H4C2.9,3,2,3.9,2,5v14c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V5 C22,3.9,21.1,3,20,3z M20,19H4V5h16V19z"
+                    fill-rule="evenodd"
+                  />
+                  <polygon
+                    fill-rule="evenodd"
+                    points="19.41,10.42 17.99,9 14.82,12.17 13.41,10.75 12,12.16 14.82,15"
+                  />
+                  <rect fill-rule="evenodd" height="2" width="5" x="5" y="7" />
+                  <rect fill-rule="evenodd" height="2" width="5" x="5" y="11" />
+                  <rect fill-rule="evenodd" height="2" width="5" x="5" y="15" />
+                </g>
+              </g>
+            </svg>
+          </div>
+          <div class="slider-link">
+            <a href="#">To-Do</a>
+          </div>
+        </div>
+        <div class="slider-middle-class-cont">
+          <div class="left-img">
+            <img
+              src="https://lh3.googleusercontent.com/a-/AOh14Gh-UFCjdhVNr0xUwyC8QYyyZAnO_D-depcTebpu=s75-c"
+              alt=""
+            />
+          </div>
+          <div class="left-txt-slider">
+            <div class="slider-title"><p>7D0</p></div>
+            <div class="slider-title-sub"><p>Charbel</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header>
+      <div class="header-left">
+        <div class="hamburger-icon-cont" id="hamburger-icon-cont">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#606368"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M4 8h16v2H4V8zm0 5h16v2H4v-2zm0 5h16v2H4v-2z" />
+          </svg>
+        </div>
+        <div class="logo-cont">
+          <div class="logo-left">
+            <img
+              class="google-logo"
+              src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg"
+              alt=""
+            />
+          </div>
+          <div class="logo-right">
+            <span>Classroom</span>
+          </div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="plus-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="34px"
+            viewBox="0 0 24 24"
+            width="34px"
+            fill="#606368"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+          </svg>
+        </div>
+        <div id="dropdown" class="dropdown" style="display: none">
+          <ul>
+            <li onclick="showJoinClassModal()">Join Class</li>
+            <li onclick="showCreateClassModal()">Create a Class</li>
+          </ul>
+        </div>
+        <div class="app-menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="34px"
+            viewBox="0 0 24 24"
+            width="34px"
+            fill="#606368"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"
+            />
+          </svg>
+        </div>
+        <div class="user-avtar">
+          <img
+            src="https://lh3.googleusercontent.com/a-/AOh14Gh-UFCjdhVNr0xUwyC8QYyyZAnO_D-depcTebpu=s75-c"
+            alt="user"
+          />
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="assignment-header">
+          <h1 id="assignmentTitle">Assignment Title</h1>
+          <div class="sub-header">
+            <p id="teacherName">Teacher name</p>
+            <p id="dueDate">Due Date</p>
+          </div>
+          <div>
+            <p id="assignmentDescription">Assignment Description goes here</p>
+          </div>
+        </div>
+        <div class="submissionSection">
+          <h2>Your Work</h2>
+          <input type="file" class="addFile" id="addFile" multiple />
+          <button class="submitButton" id="submitAssignment">Submit</button>
+        </div>
+      </div>
+    </main>
+    <script src="js/assignment.js"></script>
+  </body>
+</html>
