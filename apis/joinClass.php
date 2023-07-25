@@ -26,7 +26,7 @@ if ($result->num_rows > 0) {
         else{
             $row = $result2->fetch_assoc();
             $class_id = $row['class_id'];
-            $query = $mysqli->prepare('INSERT INTO user_classes(class_id, user_id) VALUES(?,?)');
+            $query = $mysqli->prepare('INSERT INTO user_classes(class_id, user_id, is_teacher) VALUES(?,?,0)');
             $query->bind_param('ii', $class_id, $user_id);
             $query->execute();
         
