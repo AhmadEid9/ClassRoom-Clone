@@ -250,7 +250,7 @@ function createPost() {
   data.append("class_id", class_id);
   data.append("user_id", user_id);
   data.append("post_title", FeedTitleInput.value);
-  data.append("post_descriptions", FeedDescriptionInput.value);
+  data.append("post_description", FeedDescriptionInput.value);
   axios({
     method: "post",
     url: "http://localhost/ClassRoom-Clone/apis/createPosts.php",
