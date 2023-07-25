@@ -9,8 +9,7 @@ const assignmentDayInput = document.getElementById("assingmentDay");
 const assignmentTimeInput = document.getElementById("assignmentTime");
 const createAssignmentButton = document.getElementById("submitAssignment");
 const assignmentError = document.getElementById("assignmentError");
-const meeting_link = document.getElementById("meeting_link");
-meeting_link.href = localStorage.getItem("class_link");
+
 const createAssignmentSection = document.getElementById(
   "createAssignmentSection"
 );
@@ -235,7 +234,7 @@ function createAssignment() {
       if (response.data.message === "Assignment already exists") {
         alert("Failed, Assignment already exists!");
       } else {
-        addNewStudentSection.style.display = "none";
+        createAssignmentSection.style.display = "none";
         alert("Assignment Added");
       }
     })
@@ -270,3 +269,6 @@ function createPost() {
       console.error("Error:", error);
     });
 }
+
+const meeting_link = document.getElementById("meeting_link");
+meeting_link.href = localStorage.getItem("class_link");
