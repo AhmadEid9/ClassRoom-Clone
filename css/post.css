@@ -78,7 +78,7 @@ main {
 }
 
 .poster {
-  background: linear-gradient(to left, rgb(140, 223, 140), rgb(27, 135, 27));;
+  background: linear-gradient(to left, rgb(140, 223, 140), rgb(27, 135, 27));
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -166,7 +166,7 @@ button {
 }
 .meet-btn {
   padding: 9px 70px;
-  background-color: rgb(19,115,51);
+  background-color: rgb(19, 115, 51);
   color: white;
   border-radius: 7px;
   outline: none;
@@ -196,11 +196,11 @@ button {
 .new-assignment h2 {
   font-weight: normal;
   margin-bottom: 20px;
-  color: rgb(19,115,51);
+  color: rgb(19, 115, 51);
 }
 #createAssignment {
   padding: 10px 15px;
-  background-color: rgb(19,115,51);
+  background-color: rgb(19, 115, 51);
   color: white;
   border-radius: 7px;
   outline: none;
@@ -213,7 +213,7 @@ button {
   background-color: rgb(12, 88, 37);
 }
 #postNewFeed p {
-  color: rgb(19,115,51);
+  color: rgb(19, 115, 51);
 }
 .date-time-container {
   display: flex;
@@ -290,8 +290,10 @@ button {
   align-items: center;
 }
 .teachers {
-  padding: 20px 20px 5px 20px;
-  width: 90%;
+  width: 100%;
+}
+.teachers p {
+  padding: 20px 20px 10px 20px;
   border-bottom: 1px solid grey;
 }
 #addNewStudent {
@@ -318,7 +320,7 @@ button {
   display: none;
   color: white;
 }
-#link{
+#link {
   padding: 15px;
   margin-top: 0;
 }
@@ -328,7 +330,7 @@ button {
   padding-bottom: 10px;
 }
 
-.board{
+.board {
   color: #fff;
   cursor: default;
   flex-shrink: 0;
@@ -336,19 +338,21 @@ button {
   line-height: 0;
   margin: 0 1rem 0 1.5rem;
   width: 2.5rem;
-  background-color: rgb(30,142,62);
+  background-color: rgb(30, 142, 62);
   align-items: center;
   display: flex;
   justify-content: center;
   border-radius: 17px;
 }
-.new-assignment h2{
+.new-assignment h2 {
   font-size: 18px;
 }
 @media (max-width: 700px) {
-  header, .content  {
+  header,
+  .content {
     flex-direction: column;
   }
   .new-assignment {
     align-self: auto;
-}}
+  }
+}

@@ -177,7 +177,16 @@ function joinClass() {
     });
 }
 document.getElementById("submitJoin").addEventListener("click", joinClass);
+document.addEventListener("DOMContentLoaded", function () {
+  const plusIcon = document.querySelector(".plus-icon");
+  const dropdown = document.getElementById("dropdown");
 
+  plusIcon.addEventListener("click", function () {
+    dropdown.style.display =
+      dropdown.style.display === "block" ? "none" : "block";
+    dropdown.classList.toggle("show");
+  });
+});
 // show classes
 
 function fetchClassData() {
