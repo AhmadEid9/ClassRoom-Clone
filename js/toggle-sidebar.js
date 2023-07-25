@@ -18,16 +18,6 @@ window.addEventListener("click", (event) => {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const plusIcon = document.querySelector(".plus-icon");
-  const dropdown = document.getElementById("dropdown");
-
-  plusIcon.addEventListener("click", function () {
-    dropdown.style.display =
-      dropdown.style.display === "block" ? "none" : "block";
-    dropdown.classList.toggle("show");
-  });
-});
 function preventBack() {
   window.history.forward();
 }

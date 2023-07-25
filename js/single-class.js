@@ -9,6 +9,8 @@ const assignmentDayInput = document.getElementById("assingmentDay");
 const assignmentTimeInput = document.getElementById("assignmentTime");
 const createAssignmentButton = document.getElementById("submitAssignment");
 const assignmentError = document.getElementById("assignmentError");
+var fixed_meet_link = "";
+var fixed_class_Id = localStorage.getItem("class_id");
 
 const createAssignmentSection = document.getElementById(
   "createAssignmentSection"
@@ -201,7 +203,9 @@ function fetchClassDetails() {
         class_title.textContent = classDetail.class_name;
         class_desc.textContent = classDetail.classe_description;
         link_box.textContent = classDetail.class_link;
-        classDetailsContainer.appendChild(detailDiv);
+        // classDetailsContainer.appendChild(detailDiv);
+
+        fixed_meet_link = classDetail.class_link;
       });
     })
     .catch((error) => {
@@ -250,7 +254,7 @@ function createPost() {
   data.append("class_id", class_id);
   data.append("user_id", user_id);
   data.append("post_title", FeedTitleInput.value);
-  data.append("post_descriptions", FeedDescriptionInput.value);
+  data.append("post_description", FeedDescriptionInput.value);
   axios({
     method: "post",
     url: "http://localhost/ClassRoom-Clone/apis/createPosts.php",
@@ -270,5 +274,38 @@ function createPost() {
     });
 }
 
-const meeting_link = document.getElementById("meeting_link");
-meeting_link.href = localStorage.getItem("class_link");
+const studentNameContainer = document.getElementById("studentContainer");
+const teacherNameContainer = document.getElementById("teacherContainer");
+
+function getClassStudents() {
+  axios
+    .get(
+      `http://localhost/ClassRoom-Clone/apis/getClassStudents.php?class_id=${fixed_class_Id}`
+    )
+    .then((response) => {
+      const students = response.data;
+      students.forEach((student) => {
+        studentNameContainer.innerHTML = `<p>${students.user_name}</p>`;
+      });
+    });
+}
+function getClassTeachers() {
+  axios
+    .get(
+      `http://localhost/ClassRoom-Clone/apis/getClassTeachers.php?class_id=${fixed_class_Id}`
+    )
+    .then((response) => {
+      const teachers = response.data;
+      teachers.forEach((teacher) => {
+        teacherNameContainer.innerHTML = `<p>${teacher.user_name}</p>`;
+      });
+    });
+}
+console.log(fixed_meet_link);
+const meeting_link = document.getElementById("meeting-link");
+meeting_link.addEventListener("click", function () {
+  window.open(fixed_meet_link, "_blank");
+});
+
+window.onload = getClassTeachers();
+window.onload = getClassStudents();

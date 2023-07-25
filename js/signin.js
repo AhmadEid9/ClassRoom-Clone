@@ -10,12 +10,11 @@ const backToEmail = document.getElementById("backToEmail");
 const PasswordInput = document.getElementById("Password");
 const passAlert = document.getElementById("passAlert");
 
-const response_message = document.getElementById('response-message');
-const message_modal = document.getElementById('message-modal')
-const modal_close = document.getElementById('modal-close')
+const response_message = document.getElementById("response-message");
+const message_modal = document.getElementById("message-modal");
+const modal_close = document.getElementById("modal-close");
 
-
-modal_close.addEventListener('click', hideResponseMessageModal)
+modal_close.addEventListener("click", hideResponseMessageModal);
 let generatedCode = 0;
 let fixedCode = 0;
 
@@ -29,6 +28,7 @@ function showResetCodeSection() {
   emailCodeSpan.innerHTML = emailInput.value.trim();
 }
 function showResetPassSection() {
+  newPassword.value = "";
   codeSection.style.display = "none";
   resetPasswordSection.style.display = "flex";
 }
@@ -112,17 +112,16 @@ continueBtn.addEventListener("click", function () {
 const submitNewPass = document.getElementById("submitNewPass");
 const newPassword = document.getElementById("newPassword");
 submitNewPass.addEventListener("click", function () {
-  if (newPassword.value === "") {
+  if (newPassword.value.length < 8) {
     newPassword.style.border = "1px solid red";
-    return;
-  } else {
-    //todo fetch new pass to email    api
     passAlert.style.display = "block";
     setTimeout(function () {
       passAlert.style.display = "none";
     }, 3000);
-    showEmailSection();
-    newPassword.value = "";
+    return;
+  } else {
+    //todo fetch new pass to email api
+    update_pass();
   }
 });
 
@@ -181,16 +180,15 @@ submitBtn.addEventListener("click", function () {
       if (result.data.status == "logged in") {
         localStorage.setItem("user_id", result.data.user_id);
         window.location.href = "classes.html";
-      } else
-        showResponseMessageModal(result.data.status);
-      })
+      } else showResponseMessageModal(result.data.status);
+    })
     .catch((err) => {
       console.error(err);
     });
 });
 
-function update_pass (){
-  let newpass= document.getElementById("newPassword").value
+function update_pass() {
+  let newpass = document.getElementById("newPassword").value;
   let data = new FormData();
   data.append("user_password", newpass);
   data.append("user_email", emailInput.value);
@@ -203,10 +201,10 @@ function update_pass (){
     .then((result) => {
       console.log(result.data);
       if (result.data.status == "Password changed successfully") {
-        window.location.href = "classes.html";
-      }else
-        showResponseMessageModal(result.data.status);
-      })
+        submitNewPass.disabled = false;
+        showEmailSection();
+      } else showResponseMessageModal(result.data.status);
+    })
     .catch((err) => {
       console.error(err);
     });
@@ -214,7 +212,7 @@ function update_pass (){
 
 function showResponseMessageModal(message) {
   message_modal.style.display = "flex";
-  response_message.innerText = message
+  response_message.innerText = message;
 }
 
 function hideResponseMessageModal() {
