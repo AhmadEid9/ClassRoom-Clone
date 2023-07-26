@@ -28,8 +28,6 @@ main {
 }
 
 .headlines {
-  display: flex;
-  flex-direction: column;
   margin-top: 10px;
   flex: 4;
 }
