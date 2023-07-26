@@ -242,12 +242,7 @@ function createAssignment() {
   })
     .then((response) => {
       console.log(response.data);
-      if (response.data.message === "Assignment already exists") {
-        alert("Failed, Assignment already exists!");
-      } else {
-        createAssignmentSection.style.display = "none";
-        alert("Assignment Added");
-      }
+     showResponseMessageModal(response.data.message)
     })
     .catch((error) => {
       console.error("Error:", error);
