@@ -55,7 +55,7 @@ function submitAssignment() {
       formData,
       {
         headers: {
-          "Content-Type": "multipart/form-data", // Set the correct content type for form data
+          "Content-Type": "multipart/form-data",
         },
       }
     )
