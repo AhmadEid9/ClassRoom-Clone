@@ -124,3 +124,13 @@ input {
   right: 5%;
   display: none;
 }
+#noChange {
+  padding: 20px;
+  background-color: #104d9c;
+  color: white;
+  border-radius: 5px;
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  display: none;
+}

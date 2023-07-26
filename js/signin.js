@@ -120,7 +120,6 @@ submitNewPass.addEventListener("click", function () {
     }, 3000);
     return;
   } else {
-    //todo fetch new pass to email api
     update_pass();
   }
 });

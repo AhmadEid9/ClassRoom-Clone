@@ -50,10 +50,15 @@ function updateUserInfo() {
           successfulSave.style.display = "none";
         }, 3000);
         console.log(response.data.message);
-      } else {
-        console.log(response.data.message);
       }
-      if ((response.message = "Email already in use by another user.")) {
+      if ((response.message = "No changes made to the user information.")) {
+        noChange.style.display = "block";
+        setTimeout(function () {
+          noChange.style.display = "none";
+        }, 3000);
+        console.log(response.data.message);
+        editProfleSection.style.display = "none";
+      } else {
         failedSave.style.display = "block";
         setTimeout(function () {
           failedSave.style.display = "none";
@@ -108,3 +113,4 @@ emailInput.addEventListener("input", function () {
 });
 const successfulSave = document.getElementById("successfulSave");
 const failedSave = document.getElementById("failedSave");
+const noChange = document.getElementById("noChange");
