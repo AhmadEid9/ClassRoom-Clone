@@ -516,18 +516,19 @@ li {
 }
 
 .signout {
-  background-color: red;
-  color: white;
+  background-color:transparent ;
+  color: #606368 !important;
   padding: 7px 10px;
   border: none;
   border-radius: 3px;
   font-size: 15px;
   cursor: pointer;
   transition: 0.2s;
-  margin-right: 15px;
+  margin-right: 3px;
 }
 .signout:hover {
-  background-color: rgb(255, 101, 101);
+  background-color: #f0f0f0;
+  border-radius: 70px;
 }
 .signout:active {
   opacity: 0.6;
