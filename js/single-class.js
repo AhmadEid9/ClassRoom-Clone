@@ -367,7 +367,6 @@ function addPostToStream(post){
 
 
 
-// JavaScript
 function formatDate(dateString) {
   const date = new Date(dateString);
   const options = {
@@ -390,15 +389,17 @@ function showAssign() {
       const classesData = response.data;
       const assignments_container = document.getElementById("assingments");
 
-      assignments_container.innerHTML = ''; // Clear previous content
+      assignments_container.innerHTML = ''; 
 
       classesData.forEach((classData) => {
         const assign_Card = document.createElement("div");
         assign_Card.innerHTML = `
           <div class="single-assingment">
-            <h2>${classData.assignment_title}</h2>
-            <label>Teacher: <br>${classData.user_name}<br><br></label>
-            <label>Due: <br> ${formatDate(classData.assignment_due_date)}</label>
+            <a href="#" style="text-decoration: none;" onclick="goToAssign(${classData.assignment_id})" data-classid="${classData.assignment_id}">        
+              <h2>${classData.assignment_title}</h2>
+              <label>Teacher: <br>${classData.user_name}<br><br></label>
+              <label>Due: <br>${formatDate(classData.assignment_due_date)}</label>
+            </a>
           </div>
         `;
 
@@ -413,3 +414,8 @@ function showAssign() {
 document.addEventListener("DOMContentLoaded", () => {
   showAssign();
 });
+
+function goToAssign(assign_id) {
+  localStorage.setItem("assign_id", assign_id);
+  window.location.href = "assignment.html";
+}
