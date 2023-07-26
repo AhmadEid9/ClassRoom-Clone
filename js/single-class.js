@@ -284,7 +284,7 @@ function getClassStudents() {
     .then((response) => {
       const students = response.data;
       students.forEach((student) => {
-        studentNameContainer.innerHTML = `<p>${students.user_name}</p>`;
+        studentNameContainer.innerHTML = `<p>${student.user_name}</p>`;
       });
     });
 }
