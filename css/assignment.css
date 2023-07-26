@@ -95,3 +95,7 @@ input {
 #dueDate {
   color: black;
 }
+
+#newAssignment{
+  width: 100px;
+}
