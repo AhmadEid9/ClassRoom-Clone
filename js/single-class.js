@@ -298,6 +298,7 @@ function getClassTeachers() {
       });
     });
 }
+let class_code = localStorage.getItem("class_code");
 const meeting_link = document.getElementById("meeting-link");
 meeting_link.addEventListener("click", function () {
   window.open(class_code, "_blank");
@@ -338,8 +339,9 @@ async function getClassPosts() {
 function addPostToStream(post) {
   const post_title = post["post_title"];
   const post_description = post["post_description"];
+  const post_id = post["post_id"];
   let element = `<div class="headlines">
-  <a href="">
+  <a href="#" onclick="goToPost(${post_id})" >
     <div class="headline">
       <div class="board">
         <svg
@@ -423,27 +425,35 @@ function goToAssign(assign_id) {
   console.log(assign_id);
   window.location.href = "assignment.html";
 }
-
+function goToPost(post_id) {
+  localStorage.setItem("post_id", post_id);
+  console.log(post_id);
+  window.location.href = "post.html";
+}
 
 function isTeacher() {
   console.log(localStorage.getItem("class_id"));
   console.log(localStorage.getItem("user_id"));
   axios
     .get(
-      `http://localhost/ClassRoom-Clone/apis/isTeacher.php?class_id=${localStorage.getItem("class_id")}&user_id=${localStorage.getItem("user_id")}`
+      `http://localhost/ClassRoom-Clone/apis/isTeacher.php?class_id=${localStorage.getItem(
+        "class_id"
+      )}&user_id=${localStorage.getItem("user_id")}`
     )
     .then((resp) => {
       const data = resp.data;
-      console.log(data[0]['is_teacher']);
-      if(data[0]['is_teacher'] != 1){
-        const assign = document.getElementById('newAssignment');
-        const feed = document.getElementById('postNewFeed');
+      console.log(data[0]["is_teacher"]);
+      if (data[0]["is_teacher"] != 1) {
+        const assign = document.getElementById("newAssignment");
+        const feed = document.getElementById("postNewFeed");
+        const addStudent = document.getElementById("addNewStudent");
 
-        assign.style.display = 'none';
-        feed.style.display = 'none';
+        assign.style.display = "none";
+        feed.style.display = "none";
+        addStudent.style.display = "none";
       }
     })
     .catch((error) => {
       console.error("Email sending failed:", error);
-    });  
+    });
 }

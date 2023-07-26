@@ -3,7 +3,7 @@ include('connection.php');
 
 $class_id = $_GET['class_id'];
 
-$stmt = $mysqli->prepare("SELECT DISTINCT p.post_title, p.post_description, u.user_name 
+$stmt = $mysqli->prepare("SELECT DISTINCT p.post_id, p.post_title, p.post_description, u.user_name 
                             FROM posts p
                             JOIN user_classes uc ON p.post_teacher = uc.user_id
                             JOIN users u ON uc.user_id = u.user_id
