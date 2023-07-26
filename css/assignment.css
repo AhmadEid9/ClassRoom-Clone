@@ -92,3 +92,6 @@ input {
   background-color: rgb(243, 243, 243);
   padding: 20px;
 }
+#dueDate {
+  color: black;
+}

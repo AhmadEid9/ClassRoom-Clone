@@ -25,3 +25,25 @@ const assignmentDescription = document.getElementById("assignmentDescription");
 const assignmentTitle = document.getElementById("assignmentTitle");
 const teacherName = document.getElementById("teacherName");
 const dueDate = document.getElementById("dueDate");
+
+let assignment_class = localStorage.getItem("class_id");
+let assignment_id = localStorage.getItem("assignment_id");
+
+function fetchAssignmentDetails() {
+  axios
+    .get(
+      `http://localhost/ClassRoom-Clone/apis/getAssignment.php?class_id=${assignment_class}&assignment_id=${assignment_id}`
+    )
+    .then((response) => {
+      const assignment = response.data;
+      console.log(assignment);
+      assignmentTitle.textContent = assignment.assignment_title;
+      assignmentDescription.textContent = assignment.assignment_description;
+      teacherName.textContent = assignment.teacher_name;
+      dueDate.textContent = assignment.assignment_due_date;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+window.onload = fetchAssignmentDetails();
