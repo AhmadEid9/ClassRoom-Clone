@@ -321,7 +321,7 @@ function hideResponseMessageModal() {
 async function getClassPosts() {
   axios
     .get(
-      `http://localhost/ClassRoom-Clone/apis/getClassPosts.php?class_id=${fixed_class_Id}`
+      `http://localhost/ClassRoom-Clone/apis/getClassPosts.php?class_id=${localStorage.getItem("user_id")}&user_id=${localStorage.getItem("user_id")}`
     )
     .then((response) => {
       const posts = response.data;
@@ -367,7 +367,7 @@ function addPostToStream(post){
         </svg>
       </div>
 
-      <label id="postLabel"> ${post_title} </label>
+      <label id="postLabel"> ${post_title}: ${post_description}</label>
     </div></a>`
     stream.innerHTML += element;
 }
