@@ -516,8 +516,8 @@ li {
 }
 
 .signout {
-  background-color:transparent ;
-  color: #606368 !important;
+  background-color: transparent;
+  color: #606368;
   padding: 7px 10px;
   border: none;
   border-radius: 3px;
@@ -528,6 +528,7 @@ li {
 }
 .signout:hover {
   background-color: #f0f0f0;
+  color: red;
   border-radius: 70px;
 }
 .signout:active {
