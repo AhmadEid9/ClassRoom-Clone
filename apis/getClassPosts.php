@@ -4,11 +4,9 @@ include('connection.php');
 $class_id = $_POST['class_id'];
 $user_id = $_POST['user_id'];
 
-$stmt = $mysqli->prepare("SELECT posts.post_title, posts.post_description, user_name
-                         FROM posts, users, classes, user_classes
-                         JOIN posts pts ON classes.class_id = pts.post_class
-                         JOIN user_classes usrs ON usrs.user_id = posts.post_teacher
-                         WHERE posts.post_class = ? AND users.user_id = ?");
+$stmt = $mysqli->prepare("SELECT posts.*
+                         FROM posts, users, user_classes, classes
+                         WHERE users.user_id = user_classes.user_id AND posts.post_class = classes.class_id AND posts.post_teacher = user_classes.user_id AND posts.post_class = ? AND users.user_id = ?;");
 $stmt->bind_param("ii",$class_id, $userId);
 $stmt->execute();
 $result = $stmt->get_result();

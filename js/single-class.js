@@ -9,7 +9,14 @@ const assignmentDayInput = document.getElementById("assingmentDay");
 const assignmentTimeInput = document.getElementById("assignmentTime");
 const createAssignmentButton = document.getElementById("submitAssignment");
 const assignmentError = document.getElementById("assignmentError");
-var fixed_class_Id = localStorage.getItem("class_id");
+
+const response_message = document.getElementById('response-message');
+const message_modal = document.getElementById('message-modal')
+const modal_close = document.getElementById('modal-close')
+
+
+modal_close.addEventListener('click', hideResponseMessageModal)
+let fixed_class_Id = localStorage.getItem("class_id");
 
 const createAssignmentSection = document.getElementById(
   "createAssignmentSection"
@@ -261,13 +268,7 @@ function createPost() {
     data: data,
   })
     .then((response) => {
-      console.log(response.data);
-      if (response.data.message === "post already exists") {
-        alert("Failed, Post already exists!");
-      } else {
-        newFeedSection.style.display = "none";
-        alert("Post Added");
-      }
+      showResponseMessageModal(response.data.message);
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -308,3 +309,12 @@ meeting_link.addEventListener("click", function () {
 
 window.onload = getClassTeachers();
 window.onload = getClassStudents();
+
+function showResponseMessageModal(message) {
+  message_modal.style.display = "flex";
+  response_message.innerText = message
+}
+
+function hideResponseMessageModal() {
+  message_modal.style.display = "none";
+}
