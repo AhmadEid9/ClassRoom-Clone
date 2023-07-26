@@ -371,3 +371,54 @@ function addPostToStream(post){
     </div></a>`
     stream.innerHTML += element;
 }
+
+
+
+
+
+// JavaScript
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  };
+  return new Intl.DateTimeFormat("en-US", options).format(date);
+}
+
+function showAssign() {
+  const class_id = localStorage.getItem("class_id");
+
+  axios
+    .get(`http://localhost/ClassRoom-Clone/apis/showAssignments.php?class_id=${class_id}`)
+    .then((response) => {
+      const classesData = response.data;
+      const assignments_container = document.getElementById("assingments");
+
+      assignments_container.innerHTML = ''; // Clear previous content
+
+      classesData.forEach((classData) => {
+        const assign_Card = document.createElement("div");
+        assign_Card.innerHTML = `
+          <div class="single-assingment">
+            <h2>${classData.assignment_title}</h2>
+            <label>Teacher: <br>${classData.user_name}<br><br></label>
+            <label>Due: <br> ${formatDate(classData.assignment_due_date)}</label>
+          </div>
+        `;
+
+        assignments_container.appendChild(assign_Card);
+      });
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  showAssign();
+});
