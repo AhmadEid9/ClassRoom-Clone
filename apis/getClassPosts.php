@@ -1,13 +1,14 @@
 <?php
 include('connection.php');
 
-$class_id = $_POST['class_id'];
-$user_id = $_POST['user_id'];
+$class_id = $_GET['class_id'];
 
-$stmt = $mysqli->prepare("SELECT posts.*
-                         FROM posts
-                         WHERE posts.post_class = ? AND posts.post_teacher = ?;");
-$stmt->bind_param("ii",$class_id, $user_id);
+$stmt = $mysqli->prepare("SELECT p.post_title, p.post_description, u.user_name 
+                            FROM posts p
+                            JOIN user_classes uc ON p.post_teacher = uc.user_id
+                            JOIN users u ON uc.user_id = u.user_id
+                            WHERE p.post_class = ?;");
+$stmt->bind_param("i",$class_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
