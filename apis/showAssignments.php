@@ -3,7 +3,7 @@ include('connection.php');
 
 $classId = $_GET['class_id'];
 
-$stmt = $mysqli->prepare("SELECT a.assignment_id, a.assignment_title, a.assignment_description, a.assignment_due_date, u.user_name 
+$stmt = $mysqli->prepare("SELECT Distinct a.assignment_id, a.assignment_title, a.assignment_description, a.assignment_due_date, u.user_name 
                          FROM assignments a
                          JOIN user_classes uc ON a.assignment_teacher = uc.user_id
                          JOIN users u ON uc.user_id = u.user_id
