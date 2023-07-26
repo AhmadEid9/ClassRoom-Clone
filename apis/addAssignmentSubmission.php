@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $submittedFilesBase64 = convertFilesToBase64($uploadedFiles);
 
-        $stmt = $mysqli->prepare("INSERT INTO user_assignments (class_id, user_id, assignment_id, submitted_files) 
+        $stmt = $mysqli->prepare("INSERT INTO user_assignments (class_id, user_id, assignment_id, attachment) 
                                  VALUES (?, ?, ?, ?)");
         
         $submittedFilesBase64String = implode(', ', $submittedFilesBase64);

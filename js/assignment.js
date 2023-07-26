@@ -48,7 +48,7 @@ function fetchAssignmentDetails() {
 }
 window.onload = fetchAssignmentDetails();
 
-function submitAssignment() {
+function submitAssignment(formData) {
   axios
     .post(
       "http://localhost/ClassRoom-Clone/apis/submitAssignment.php",
@@ -77,7 +77,7 @@ submitBtn.addEventListener("click", () => {
   formData.append("class_id", localStorage.getItem("class_id"));
   formData.append("assignment_id", localStorage.getItem("assign_id"));
   for (const [index, file] of files.entries()) {
-    formData.append(`file${index}`, file);
+    formData.append(`attachment`, file);
   }
   submitAssignment(formData);
 });
