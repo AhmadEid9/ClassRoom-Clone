@@ -5,9 +5,9 @@ $class_id = $_POST['class_id'];
 $user_id = $_POST['user_id'];
 
 $stmt = $mysqli->prepare("SELECT posts.*
-                         FROM posts, users, user_classes, classes
-                         WHERE users.user_id = user_classes.user_id AND posts.post_class = classes.class_id AND posts.post_teacher = user_classes.user_id AND posts.post_class = ? AND users.user_id = ?;");
-$stmt->bind_param("ii",$class_id, $userId);
+                         FROM posts
+                         WHERE posts.post_class = ? AND posts.post_teacher = ?;");
+$stmt->bind_param("ii",$class_id, $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
