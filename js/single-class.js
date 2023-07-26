@@ -308,6 +308,7 @@ meeting_link.addEventListener("click", function () {
 window.onload = getClassTeachers();
 window.onload = getClassStudents();
 window.onload = getClassPosts();
+window.onload = isTeacher();
 
 function showResponseMessageModal(message) {
   message_modal.style.display = "flex";
@@ -418,4 +419,28 @@ document.addEventListener("DOMContentLoaded", () => {
 function goToAssign(assign_id) {
   localStorage.setItem("assign_id", assign_id);
   window.location.href = "assignment.html";
+}
+
+
+function isTeacher() {
+  console.log(localStorage.getItem("class_id"));
+  console.log(localStorage.getItem("user_id"));
+  axios
+    .get(
+      `http://localhost/ClassRoom-Clone/apis/isTeacher.php?class_id=${localStorage.getItem("class_id")}&user_id=${localStorage.getItem("user_id")}`
+    )
+    .then((resp) => {
+      const data = resp.data;
+      console.log(data[0]['is_teacher']);
+      if(data[0]['is_teacher'] != 1){
+        const assign = document.getElementById('newAssignment');
+        const feed = document.getElementById('postNewFeed');
+
+        assign.style.display = 'none';
+        feed.style.display = 'none';
+      }
+    })
+    .catch((error) => {
+      console.error("Email sending failed:", error);
+    });  
 }

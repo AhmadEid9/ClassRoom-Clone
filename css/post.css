@@ -28,8 +28,8 @@ main {
 }
 
 .headlines {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   margin-top: 10px;
   flex: 4;
 }
@@ -60,7 +60,6 @@ main {
 }
 .headline {
   width: 100%;
-  height: auto;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
