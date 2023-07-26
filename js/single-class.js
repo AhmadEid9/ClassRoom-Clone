@@ -321,7 +321,7 @@ function hideResponseMessageModal() {
 async function getClassPosts() {
   axios
     .get(
-      `http://localhost/ClassRoom-Clone/apis/getClassPosts.php?class_id=${localStorage.getItem("user_id")}&user_id=${localStorage.getItem("user_id")}`
+      `http://localhost/ClassRoom-Clone/apis/getClassPosts.php?class_id=${localStorage.getItem("class_id")}`
     )
     .then((response) => {
       const posts = response.data;
@@ -338,15 +338,6 @@ function addPostToStream(post){
   const post_title = post['post_title']
   const post_description = post['post_description']
   let element = `<div class="headlines">
-  <div class="new-assignment" id="newAssignment">
-    <h2>Add New Assignment</h2>
-    <button type="button" id="createAssignment">
-      Add Assignment
-    </button>
-  </div>
-  <div class="headline" id="postNewFeed">
-    <p>Share with your class new feed ...</p>
-  </div>
   <a href="">
     <div class="headline">
       <div class="board">
