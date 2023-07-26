@@ -3,10 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Feed Information</title>
-
-    <link rel="stylesheet" href="css/assignment.css" />
+    <link rel="stylesheet" href="css/profile.css" />
     <link rel="stylesheet" href="css/classes.css" />
+    <title>Profile</title>
   </head>
   <body>
     <div class="slider-open">
@@ -133,6 +132,7 @@
       </div>
       <div class="header-right">
         <button class="signout" id="signout">Signout</button>
+        <div class="tabs"></div>
         <div class="app-menu">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -152,21 +152,50 @@
         </div>
       </div>
     </header>
-
     <main>
-      <div class="container">
-        <div class="assignment-header">
-          <h1 id="postTitle">Post Title</h1>
-          <div class="sub-header">
-            <p id="userName">User Name</p>
-          </div>
-          <div>
-            <p id="postDescription">Post Description goes here</p>
-          </div>
+      <div class="profile-cntainer">
+        <div class="profile-element">
+          <img
+            src="Assets/Google_Classroom_Logo.png"
+            alt=""
+            class="Google_Classroom_Logo"
+          />
+          <h1>Profile</h1>
+        </div>
+
+        <div class="profile-element">
+          <p class="bold">Name</p>
+          <p id="username">name goes here</p>
+        </div>
+        <div class="profile-element">
+          <p class="bold">Email</p>
+          <p id="email">email goes here</p>
+        </div>
+        <div class="btn-container">
+          <button class="edit-profile" id="editProfle">Edit Profile</button>
         </div>
       </div>
+      <div class="edit-profile-section" id="editProfleSection">
+        <h2>Edit Profile</h2>
+        <label for="nameInput" class="form-label">Name</label>
+        <input type="text" id="nameInput" class="form-element" maxlength="36" />
+        <label for="emailInput" class="form-label">Email</label>
+        <input
+          type="text"
+          id="emailInput"
+          class="form-element"
+          maxlength="36"
+        />
+        <div class="btn-container">
+          <button class="edit-profile" id="cancelEdit">Cancel</button>
+          <button class="edit-profile" id="saveProfile">Save</button>
+        </div>
+      </div>
+      <div id="successfulSave">Profile Saved Successfully</div>
+      <div id="failedSave">Email entered already exists</div>
     </main>
-    <script src="js/post.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js/toggle-sidebar.js"></script>
+    <script src="js/profile.js"></script>
   </body>
 </html>
