@@ -7,10 +7,12 @@ submitBtn.addEventListener("click", () => {
   fileInputs.forEach((fileInput) => files.push(fileInput.files[0]));
 
   const formData = new FormData();
+  formData.append("class_id", localStorage.getItem("class_id"));
+  formData.append("assignment_id", localStorage.getItem("assign_id"));
   for (const [index, file] of files.entries()) {
     formData.append(`file${index}`, file); //appended files to form data
   }
-  //upload form data with axios api, if success call showSubmitted function below
+  submitAssignment();
 });
 
 function showSubmitted() {
@@ -27,7 +29,7 @@ const teacherName = document.getElementById("teacherName");
 const dueDate = document.getElementById("dueDate");
 
 let assignment_class = localStorage.getItem("class_id");
-let assignment_id = localStorage.getItem("assignment_id");
+let assignment_id = localStorage.getItem("assign_id");
 
 function fetchAssignmentDetails() {
   axios
@@ -47,3 +49,23 @@ function fetchAssignmentDetails() {
     });
 }
 window.onload = fetchAssignmentDetails();
+
+function submitAssignment() {
+  axios
+    .post(
+      "http://localhost/ClassRoom-Clone/apis/submitAssignment.php",
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data", // Set the correct content type for form data
+        },
+      }
+    )
+    .then((response) => {
+      console.log(response.data); // Assuming the server returns a response indicating success
+      showSubmitted();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
