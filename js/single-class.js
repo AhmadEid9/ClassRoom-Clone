@@ -10,14 +10,13 @@ const assignmentTimeInput = document.getElementById("assignmentTime");
 const createAssignmentButton = document.getElementById("submitAssignment");
 const assignmentError = document.getElementById("assignmentError");
 
-const stream = document.getElementById('streams')
+const stream = document.getElementById("streams");
 
-const response_message = document.getElementById('response-message');
-const message_modal = document.getElementById('message-modal')
-const modal_close = document.getElementById('modal-close')
+const response_message = document.getElementById("response-message");
+const message_modal = document.getElementById("message-modal");
+const modal_close = document.getElementById("modal-close");
 
-
-modal_close.addEventListener('click', hideResponseMessageModal)
+modal_close.addEventListener("click", hideResponseMessageModal);
 let fixed_class_Id = localStorage.getItem("class_id");
 
 const createAssignmentSection = document.getElementById(
@@ -133,7 +132,7 @@ submitAddStudentBtn.addEventListener("click", function () {
 
 function sendMail() {
   emailjs.init("r04vWJ2vgDHJ6-ava"); // Public key
-  let class_code= localStorage.getItem('class_code')
+  let class_code = localStorage.getItem("class_code");
   console.log(`hi ${class_code}`);
 
   const emailParams = {
@@ -213,8 +212,8 @@ function fetchClassDetails() {
         class_title.textContent = classDetail.class_name;
         class_desc.textContent = classDetail.classe_description;
         link_box.textContent = classDetail.class_link;
-   
-        localStorage.setItem('class_code', classDetail.class_link)
+
+        localStorage.setItem("class_code", classDetail.class_link);
       });
     })
     .catch((error) => {
@@ -223,7 +222,6 @@ function fetchClassDetails() {
 }
 document.addEventListener("DOMContentLoaded", function () {
   fetchClassDetails();
-
 });
 
 //...............................................
@@ -245,7 +243,7 @@ function createAssignment() {
   })
     .then((response) => {
       console.log(response.data);
-     showResponseMessageModal(response.data.message)
+      showResponseMessageModal(response.data.message);
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -312,7 +310,7 @@ window.onload = isTeacher();
 
 function showResponseMessageModal(message) {
   message_modal.style.display = "flex";
-  response_message.innerText = message
+  response_message.innerText = message;
 }
 
 function hideResponseMessageModal() {
@@ -322,7 +320,9 @@ function hideResponseMessageModal() {
 async function getClassPosts() {
   axios
     .get(
-      `http://localhost/ClassRoom-Clone/apis/getClassPosts.php?class_id=${localStorage.getItem("class_id")}`
+      `http://localhost/ClassRoom-Clone/apis/getClassPosts.php?class_id=${localStorage.getItem(
+        "class_id"
+      )}`
     )
     .then((response) => {
       const posts = response.data;
@@ -335,9 +335,9 @@ async function getClassPosts() {
     });
 }
 
-function addPostToStream(post){
-  const post_title = post['post_title']
-  const post_description = post['post_description']
+function addPostToStream(post) {
+  const post_title = post["post_title"];
+  const post_description = post["post_description"];
   let element = `<div class="headlines">
   <a href="">
     <div class="headline">
@@ -360,13 +360,9 @@ function addPostToStream(post){
       </div>
 
       <label id="postLabel"> ${post_title}: ${post_description}</label>
-    </div></a>`
-    stream.innerHTML += element;
+    </div></a>`;
+  stream.innerHTML += element;
 }
-
-
-
-
 
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -385,21 +381,27 @@ function showAssign() {
   const class_id = localStorage.getItem("class_id");
 
   axios
-    .get(`http://localhost/ClassRoom-Clone/apis/showAssignments.php?class_id=${class_id}`)
+    .get(
+      `http://localhost/ClassRoom-Clone/apis/showAssignments.php?class_id=${class_id}`
+    )
     .then((response) => {
       const classesData = response.data;
       const assignments_container = document.getElementById("assingments");
 
-      assignments_container.innerHTML = ''; 
+      assignments_container.innerHTML = "";
 
       classesData.forEach((classData) => {
         const assign_Card = document.createElement("div");
         assign_Card.innerHTML = `
           <div class="single-assingment">
-            <a href="#" style="text-decoration: none;" onclick="goToAssign(${classData.assignment_id})" data-classid="${classData.assignment_id}">        
+            <a href="#" style="text-decoration: none;" onclick="goToAssign(${
+              classData.assignment_id
+            })" data-classid="${classData.assignment_id}">        
               <h2>${classData.assignment_title}</h2>
               <label>Teacher: <br>${classData.user_name}<br><br></label>
-              <label>Due: <br>${formatDate(classData.assignment_due_date)}</label>
+              <label>Due: <br>${formatDate(
+                classData.assignment_due_date
+              )}</label>
             </a>
           </div>
         `;
@@ -418,6 +420,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function goToAssign(assign_id) {
   localStorage.setItem("assign_id", assign_id);
+  console.log(assign_id);
   window.location.href = "assignment.html";
 }
 
