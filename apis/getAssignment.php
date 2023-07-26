@@ -2,7 +2,7 @@
 include('connection.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    if (isset($_GET['class_id']) && isset($_GET['assignment_id'])) {
+    if (isset($_GET['assignment_class']) && isset($_GET['assignment_id'])) {
         $assignment_class = $_GET['assignment_class'];
         $assignment_id = $_GET['assignment_id'];
 
