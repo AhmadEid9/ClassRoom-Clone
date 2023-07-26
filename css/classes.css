@@ -570,3 +570,17 @@ li {
   cursor: pointer;
   transition: 0.2s;
 }
+#Classes {
+  cursor: pointer;
+}
+#ProfileLink {
+  font-size: 14px;
+  font-weight: normal;
+  margin-left: 10px;
+  color: #3d4043;
+  cursor: pointer;
+  transition: 0.2s;
+}
+#ProfileLink:hover {
+  color: #1a73e8;
+}

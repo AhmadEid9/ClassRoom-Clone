@@ -1,5 +1,7 @@
 const hamburgerIconCont = document.getElementById("hamburger-icon-cont");
 const sliderOpen = document.querySelector(".slider-open");
+const ProfileLink = document.getElementById("ProfileLink");
+const Classes = document.getElementById("Classes");
 
 hamburgerIconCont.addEventListener("click", () => {
   sliderOpen.classList.toggle("show-slider");
@@ -30,3 +32,15 @@ signout.addEventListener("click", function () {
     null;
   };
 });
+ProfileLink.addEventListener("click", function () {
+  window.location.href = "userProfile.html";
+});
+Classes.addEventListener("click", function () {
+  window.location.href = "classes.html";
+});
+
+window.onload = function () {
+  if (!localStorage.getItem("user_id")) {
+    window.location.href = "landing.html";
+  }
+};

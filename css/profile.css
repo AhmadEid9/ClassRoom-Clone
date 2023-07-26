@@ -1,0 +1,126 @@
+@import url("https://fonts.cdnfonts.com/css/google-sans");
+
+main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Google Sans Text", "Product Sans", "Roboto", Arial, Helvetica,
+    sans-serif;
+}
+
+.profile-cntainer {
+  width: 30%;
+  border: 2px solid #e4e4e4;
+  border-radius: 10px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 20px;
+  background-color: #e4e4e4;
+  justify-content: flex-start;
+}
+.profile-element {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.bold {
+  font-weight: bold;
+}
+.Google_Classroom_Logo {
+  width: 50px;
+}
+.edit-profile {
+  padding: 10px 20px;
+  outline: none;
+  border: 1px solid #1a73e8;
+  border-radius: 3px;
+  background-color: #1a73e8;
+  cursor: pointer;
+  transition: 0.3s;
+  color: white;
+  align-self: flex-end;
+}
+.edit-profile:hover {
+  background-color: #104d9c;
+}
+.btn-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.edit-profile-section {
+  width: 30%;
+  height: 300px;
+  border-radius: 10px;
+  position: absolute;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.form-label {
+  font-size: 12px;
+  margin-top: 20px;
+  transition: 0.2s;
+  align-self: flex-start;
+}
+.form-element {
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid grey;
+  outline: none;
+  background-color: #eeeeee;
+  font-size: 14px;
+  width: 100%;
+  transition: 0.2s;
+}
+input {
+  font-family: "Google Sans Text", "Product Sans", "Roboto", Arial, Helvetica,
+    sans-serif;
+}
+.form-element:focus {
+  border-bottom: 2px solid #1a73e8;
+  background-color: #e2e2e2;
+}
+.btn-container {
+  margin-top: 40px;
+  gap: 10px;
+}
+#cancelEdit {
+  background-color: grey;
+  border: none;
+}
+#cancelEdit:hover {
+  background-color: red;
+}
+#editProfleSection {
+  display: none;
+}
+#successfulSave {
+  padding: 20px;
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  display: none;
+}
+#failedSave {
+  padding: 20px;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  display: none;
+}
