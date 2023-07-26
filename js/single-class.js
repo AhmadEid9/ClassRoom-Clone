@@ -321,7 +321,7 @@ function hideResponseMessageModal() {
 async function getClassPosts() {
   axios
     .get(
-      `http://localhost/ClassRoom-Clone/apis/getClassPosts.php?class_id=${fixed_class_Id}&user_id=${localStorage.getItem("user_id")}`
+      `http://localhost/ClassRoom-Clone/apis/getClassPosts.php?class_id=${localStorage.getItem("user_id")}&user_id=${localStorage.getItem("user_id")}`
     )
     .then((response) => {
       const posts = response.data;
